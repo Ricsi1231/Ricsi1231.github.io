@@ -1,0 +1,37 @@
+---
+// Top navigation: in-page "Services" anchor + external GitHub link.
+---
+
+<nav class="mx-auto flex max-w-[1200px] items-center justify-between gap-8 px-4 py-8">
+  <ul class="hidden list-none items-center gap-12 desktop:flex">
+    <li class="link">
+      <a href="#services" class="relative pb-3 text-white">Services</a>
+    </li>
+    <li class="link">
+      <a
+        href="https://github.com/Ricsi1231"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="relative pb-3 text-white">GitHub</a
+      >
+    </li>
+  </ul>
+</nav>
+
+<style>
+  /* Animated underline on hover, ported from .link a::after in style.css */
+  .link a::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-accent);
+    transition: all 0.3s ease;
+  }
+
+  .link a:hover::after {
+    width: 70%;
+  }
+</style>

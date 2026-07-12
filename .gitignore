@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+
+# editor / IDE / local tooling
+.idea/
+.vscode/
+*.iml
+.claude/settings.local.json
+
+# os / logs
+.DS_Store
+npm-debug.log*
