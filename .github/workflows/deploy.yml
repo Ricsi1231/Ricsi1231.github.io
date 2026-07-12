@@ -22,6 +22,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Pages
+        # `enablement: true` turns on GitHub Pages and switches its build type to
+        # "GitHub Actions" from within the workflow — so the default Jekyll builder
+        # (which fails on Astro `---` frontmatter) is disabled without a manual UI toggle.
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - name: Build Astro site
         uses: withastro/action@v3
         # Defaults: Node 20, npm, path ".", build "npm run build", output "dist".
