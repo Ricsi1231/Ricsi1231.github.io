@@ -1,0 +1,73 @@
+---
+// Hero / header section: intro heading, bio, and portrait image.
+---
+
+<header
+  class="relative mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-8 px-8 pt-8 pb-20 desktop:grid-cols-2"
+>
+  <div class="content relative">
+    <span class="blur"></span>
+    <span class="blur"></span>
+    <h1 class="mb-4 text-5xl font-bold leading-[4rem] text-white">
+      Hi, I'm <span class="stroke">Nagy Richárd</span> Mechatronics engineering student
+    </h1>
+    <p class="mb-8 text-muted">
+      Welcome to my website! I'm passionate about electronics, automation, robotics, and
+      programming electrical devices.
+      <br />
+      <br />
+      During high school, I self-taught a lot about embedded systems (Hardware - Software),
+      industrial automation and robotics, which led me to compete in five competitions and
+      participate in an Erasmus program. Currently, I'm pursuing a Mechatronics Engineering
+      degree at Subotica Tech - College of Applied Sciences.
+      <br />
+      <br />
+      I work as an Embedded Systems and Electrical Engineer at PIERRE, where I focus on
+      designing custom hardware. When I'm not working on hardware, I develop firmware in C++
+      to create innovative solutions.
+      <br />
+      <br />
+      Let's connect! Feel free to reach out at richardnagy551@gmail.com and check out my
+      projects on GitHub.
+    </p>
+  </div>
+  <div class="image relative">
+    <img src="/images/header.png" alt="Nagy Richárd" class="mx-auto flex max-w-[600px]" />
+  </div>
+</header>
+
+<style>
+  /* Blue accent glow, ported from .blur in style.css */
+  .blur {
+    position: absolute;
+    box-shadow: 0 0 1000px 50px var(--color-accent);
+    z-index: -100;
+  }
+
+  /* Outlined text for the name, ported from header .content h1 span */
+  .stroke {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #fff;
+  }
+
+  /* Giant faint "o" watermark behind the portrait, ported from header .image::before */
+  .image::before {
+    content: 'o';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 38rem;
+    font-weight: 400;
+    line-height: 20rem;
+    color: var(--color-accent);
+    opacity: 0.2;
+    z-index: -100;
+  }
+
+  @media (width < 600px) {
+    .image::before {
+      display: none;
+    }
+  }
+</style>

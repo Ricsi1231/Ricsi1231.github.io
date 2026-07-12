@@ -1,0 +1,34 @@
+@import 'tailwindcss';
+
+/* Self-hosted Poppins (replaces the Google Fonts CDN @import) */
+@import '@fontsource/poppins/300.css';
+@import '@fontsource/poppins/400.css';
+@import '@fontsource/poppins/500.css';
+@import '@fontsource/poppins/600.css';
+@import '@fontsource/poppins/700.css';
+@import '@fontsource/poppins/800.css';
+
+/* Design tokens ported 1:1 from the original style.css palette */
+@theme {
+  --color-bg: #18181b;
+  --color-card: #27272a;
+  --color-card-hover: #323232;
+  --color-accent: #1d4ed8;
+  --color-accent-dark: #1e40af;
+  --color-muted: #cccccc;
+
+  --font-sans: 'Poppins', sans-serif;
+
+  /* Breakpoints mirror the original @media (width < 900px) / (width < 600px) */
+  --breakpoint-tablet: 600px;
+  --breakpoint-desktop: 900px;
+}
+
+html {
+  scroll-behavior: smooth; /* replaces the old script.js scroll helper */
+}
+
+body {
+  background-color: var(--color-bg);
+  font-family: var(--font-sans);
+}
