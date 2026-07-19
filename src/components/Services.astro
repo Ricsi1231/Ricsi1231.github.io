@@ -5,7 +5,7 @@ import { services } from '../data/services';
 
 <section id="services" class="mx-auto max-w-[1200px] px-8 py-20">
   <h2 class="mb-4 text-center text-4xl font-semibold text-white">Services</h2>
-  <div class="mt-16 grid grid-cols-1 gap-8 tablet:grid-cols-2 desktop:grid-cols-4">
+  <div class="mt-16 grid grid-cols-1 gap-6 tablet:grid-cols-2 desktop:grid-cols-5">
     {services.map((service) => <ServiceCard {...service} />)}
   </div>
 </section>
