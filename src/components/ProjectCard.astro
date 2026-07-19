@@ -1,0 +1,27 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Project } from '../data/projects';
+
+type Props = Project;
+
+const { slug, title, summary, cover, icon } = Astro.props;
+---
+
+<a
+  href={`/projects/${slug}/`}
+  class="card block overflow-hidden rounded-[15px] border-2 border-transparent bg-card transition-all duration-300 hover:border-white hover:bg-card-hover"
+>
+  {
+    cover ? (
+      <img src={cover} alt={title} class="aspect-video w-full object-cover" />
+    ) : (
+      <div class="flex aspect-video w-full items-center justify-center bg-accent-dark/25 text-[3.5rem] text-white">
+        {icon && <Icon name={icon} />}
+      </div>
+    )
+  }
+  <div class="p-4">
+    <h3 class="mb-2 text-[1.2rem] font-semibold text-white">{title}</h3>
+    <p class="text-muted">{summary}</p>
+  </div>
+</a>

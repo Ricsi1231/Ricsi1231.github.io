@@ -14,3 +14,7 @@ dist/
 # os / logs
 .DS_Store
 npm-debug.log*
+
+# local project source material (PDFs, downloaded repos) — not part of the site.
+# Root-anchored so it does NOT match the site's src/pages/projects/.
+/projects/

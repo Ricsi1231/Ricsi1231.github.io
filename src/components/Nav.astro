@@ -1,11 +1,23 @@
 ---
-// Top navigation: in-page "Services" anchor + external GitHub link.
+// Top navigation: on the home page it shows the in-page "Services" anchor; on any
+// other page that first item becomes a "Home" link back to the index. Also a
+// "Projects" page link and an external GitHub link.
+const isHome = Astro.url.pathname === '/';
 ---
 
 <nav class="mx-auto flex max-w-[1200px] items-center justify-between gap-8 px-4 py-8">
   <ul class="hidden list-none items-center gap-12 desktop:flex">
     <li class="link">
-      <a href="#services" class="relative pb-3 text-white">Services</a>
+      {
+        isHome ? (
+          <a href="#services" class="relative pb-3 text-white">Services</a>
+        ) : (
+          <a href="/" class="relative pb-3 text-white">Home</a>
+        )
+      }
+    </li>
+    <li class="link">
+      <a href="/projects/" class="relative pb-3 text-white">Projects</a>
     </li>
     <li class="link">
       <a

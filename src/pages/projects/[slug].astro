@@ -1,0 +1,78 @@
+---
+import { Icon } from 'astro-icon/components';
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import { projects, type Project } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+type Props = { project: Project };
+
+const { project } = Astro.props;
+const { title, description, links, images = [] } = project;
+
+// A lone image is centered in a narrower single column; multiple images use a
+// two-column grid.
+const isSingleImage = images.length === 1;
+const galleryClass = isSingleImage
+  ? 'mx-auto grid max-w-[640px] grid-cols-1 justify-items-center gap-8'
+  : 'mx-auto grid max-w-[1000px] grid-cols-1 justify-items-center gap-8 tablet:grid-cols-2';
+---
+
+<Layout title={`${title} — Ricsi1231`}>
+  <Nav />
+  <article class="mx-auto max-w-[1200px] px-8 py-20">
+    <a href="/projects/" class="mb-8 inline-block text-muted transition-colors hover:text-white">
+      ← Back to projects
+    </a>
+
+    <h1 class="mb-6 text-4xl font-semibold text-white">{title}</h1>
+    <p class="mb-8 text-muted" set:html={description} />
+
+    {
+      links.length > 0 && (
+        <div class="mb-12 flex flex-wrap gap-4">
+          {links.map((link) => (
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 rounded-[8px] bg-accent px-4 py-2 font-medium text-white transition-colors hover:bg-accent-dark"
+            >
+              {link.icon && <Icon name={link.icon} />}
+              {link.label}
+            </a>
+          ))}
+        </div>
+      )
+    }
+
+    {
+      images.length > 0 && (
+        <div class={galleryClass}>
+          {images.map((image, index) => (
+            <a
+              href={image}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex w-full items-center justify-center rounded-[15px] border-2 border-transparent bg-card p-3 transition-all duration-300 hover:border-white"
+            >
+              <img
+                src={image}
+                alt={`${title} — image ${index + 1}`}
+                class="max-h-[360px] w-auto rounded-[10px] object-contain"
+              />
+            </a>
+          ))}
+        </div>
+      )
+    }
+  </article>
+  <Footer />
+</Layout>
