@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Hero from '../../components/Hero.astro';
+import Services from '../../components/Services.astro';
+import Footer from '../../components/Footer.astro';
+import { LANGS, type Lang } from '../../i18n/types';
+import { useTranslations } from '../../i18n/ui';
+import { langParam } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({
+    params: { lang: langParam(lang) },
+    props: { lang },
+  }));
+}
+
+type Props = { lang: Lang };
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<Layout title={t('siteName')} lang={lang}>
+  <Nav lang={lang} />
+  <Hero lang={lang} />
+  <Services lang={lang} />
+  <Footer lang={lang} />
+</Layout>

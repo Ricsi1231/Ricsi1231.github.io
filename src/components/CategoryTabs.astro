@@ -1,0 +1,47 @@
+---
+// Filter tabs above the project grid. Each tab is a plain link to a pre-rendered
+// page, so filtering works without JavaScript and every filtered view can be
+// linked to and indexed on its own.
+import { ALL_LABEL, CATEGORIES, type CategoryId } from '../data/categories';
+import { projects } from '../data/projects';
+import type { Lang } from '../i18n/types';
+import { localizePath } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  /** The category being shown, or null on the unfiltered "All" page. */
+  active: CategoryId | null;
+}
+
+const { lang, active } = Astro.props;
+
+const tabs = [
+  { slug: null, label: ALL_LABEL[lang], count: projects.length, href: localizePath(lang, '/projects/') },
+  ...CATEGORIES.map((category) => ({
+    slug: category.slug as CategoryId,
+    label: category.label[lang],
+    count: projects.filter((project) => project.categories.includes(category.slug)).length,
+    href: localizePath(lang, `/projects/category/${category.slug}/`),
+  })),
+];
+
+const BASE =
+  'inline-flex items-center gap-2 rounded-full border-2 px-4 py-2 text-[0.95rem] font-medium transition-all duration-300';
+const ACTIVE = 'border-accent bg-accent text-white';
+const IDLE = 'border-transparent bg-card text-muted hover:border-white hover:bg-card-hover hover:text-white';
+---
+
+<nav class="mt-10 flex flex-wrap justify-center gap-3">
+  {
+    tabs.map((tab) => (
+      <a
+        href={tab.href}
+        aria-current={tab.slug === active ? 'page' : undefined}
+        class={`${BASE} ${tab.slug === active ? ACTIVE : IDLE}`}
+      >
+        {tab.label}
+        <span class="text-[0.8rem] opacity-70">{tab.count}</span>
+      </a>
+    ))
+  }
+</nav>

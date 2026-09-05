@@ -1,0 +1,33 @@
+---
+// Flag + language-code button that swaps to the other language while staying on
+// the current page. It is a plain <a> to a pre-rendered URL, so it needs no
+// client-side JavaScript.
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '../i18n/types';
+import { useTranslations } from '../i18n/ui';
+import { getLocalizedPath } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+// The button advertises where it takes you, not where you are.
+const target: Lang = lang === 'en' ? 'hu' : 'en';
+
+const FLAG: Record<Lang, string> = { en: 'circle-flags:gb', hu: 'circle-flags:hu' };
+const CODE: Record<Lang, string> = { en: 'EN', hu: 'HU' };
+---
+
+<a
+  href={getLocalizedPath(Astro.url.pathname, target)}
+  hreflang={target}
+  aria-label={t('switchLanguage')}
+  title={t('switchLanguage')}
+  class="inline-flex shrink-0 items-center gap-2 rounded-[8px] border-2 border-transparent bg-card px-3 py-2 text-[0.9rem] font-medium text-white transition-all duration-300 hover:border-white hover:bg-card-hover"
+>
+  <Icon name={FLAG[target]} class="text-[1.15rem]" />
+  <span>{CODE[target]}</span>
+</a>
