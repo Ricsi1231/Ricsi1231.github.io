@@ -1,6 +1,8 @@
 ---
 // Hero / header section: intro heading, bio, and portrait image. The copy itself
 // lives in src/data/hero.ts so both languages sit side by side.
+import { Image } from 'astro:assets';
+import portrait from '../assets/images/header.png';
 import { hero } from '../data/hero';
 import type { Lang } from '../i18n/types';
 
@@ -27,9 +29,12 @@ const { lang } = Astro.props;
     <p class="mb-8 text-muted" set:html={hero.body[lang]} />
   </div>
   <div class="image relative">
-    <img
-      src="/images/header.png"
+    <Image
+      src={portrait}
       alt={hero.portraitAlt}
+      widths={[400, 600, 1200]}
+      sizes="(min-width: 900px) 600px, 100vw"
+      format="webp"
       class="mx-auto flex max-w-[600px]"
     />
   </div>
