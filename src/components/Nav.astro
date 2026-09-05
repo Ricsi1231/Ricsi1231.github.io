@@ -19,8 +19,8 @@ const t = useTranslations(lang);
 const isHome = stripLang(Astro.url.pathname) === '/';
 ---
 
-<nav class="mx-auto flex max-w-[1200px] items-center justify-between gap-8 px-4 py-8">
-  <ul class="hidden list-none items-center gap-12 desktop:flex">
+<nav class="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-x-3 gap-y-4 px-4 py-6 tablet:gap-8 tablet:py-8">
+  <ul class="flex list-none flex-wrap items-center gap-x-4 gap-y-2 text-[0.9rem] tablet:gap-8 tablet:text-base desktop:gap-12">
     <li class="link">
       {
         isHome ? (
@@ -49,8 +49,7 @@ const isHome = stripLang(Astro.url.pathname) === '/';
     </li>
   </ul>
 
-  <!-- ml-auto keeps the switcher right-aligned below the `desktop` breakpoint,
-       where the link list above is hidden and would otherwise leave it alone. -->
+  <!-- ml-auto keeps the switcher hard right even if the links wrap to their own row. -->
   <div class="ml-auto">
     <LanguageSwitcher lang={lang} />
   </div>
