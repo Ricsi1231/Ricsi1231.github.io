@@ -14,6 +14,13 @@ const strings = {
   navProjects: { en: 'Projects', hu: 'Projektek' },
   navGithub: { en: 'GitHub', hu: 'GitHub' },
 
+  articlesHeading: { en: 'Articles', hu: 'Cikkek' },
+  articlesIntro: {
+    en: 'I write up the engineering behind these projects — the decisions, the numbers, and the parts that did not work first time.',
+    hu: 'Megírom a projektek mögötti mérnöki munkát is — a döntéseket, a számokat, és azt, ami elsőre nem sikerült.',
+  },
+  allArticles: { en: 'All articles on Medium', hu: 'Összes cikk a Mediumon' },
+
   servicesHeading: { en: 'Services', hu: 'Szolgáltatások' },
   projectsHeading: { en: 'Projects', hu: 'Projektek' },
   backToProjects: { en: '← Back to projects', hu: '← Vissza a projektekhez' },

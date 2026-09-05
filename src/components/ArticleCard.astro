@@ -1,0 +1,37 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Article } from '../data/articles';
+import type { Lang } from '../i18n/types';
+
+interface Props {
+  article: Article;
+  lang: Lang;
+}
+
+const { article, lang } = Astro.props;
+
+// Formatted at build time, so no date library and no client-side work.
+const LOCALE: Record<Lang, string> = { en: 'en-GB', hu: 'hu-HU' };
+const published = new Date(article.date);
+const formatted = new Intl.DateTimeFormat(LOCALE[lang], {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+}).format(published);
+---
+
+<a
+  href={article.url}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="card flex flex-col rounded-[15px] border-2 border-transparent bg-card p-6 transition-all duration-300 hover:border-white hover:bg-card-hover"
+>
+  <time datetime={article.date} class="mb-3 text-[0.8rem] text-muted">{formatted}</time>
+  <h3 class="mb-3 text-[1.15rem] font-semibold text-white">{article.title}</h3>
+  <p class="mb-4 text-muted">{article.blurb[lang]}</p>
+  <span class="mt-auto inline-flex items-center gap-2 text-[0.9rem] font-medium text-accent">
+    <Icon name="ri:medium-fill" />
+    Medium
+    <Icon name="ri:arrow-right-line" />
+  </span>
+</a>
