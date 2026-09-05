@@ -1,0 +1,41 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Nav from '../../../../components/Nav.astro';
+import Footer from '../../../../components/Footer.astro';
+import ProjectCard from '../../../../components/ProjectCard.astro';
+import CategoryTabs from '../../../../components/CategoryTabs.astro';
+import { CATEGORIES, getCategory, type CategoryId } from '../../../../data/categories';
+import { orderedProjects } from '../../../../data/projects';
+import { LANGS, type Lang } from '../../../../i18n/types';
+import { useTranslations } from '../../../../i18n/ui';
+import { langParam } from '../../../../i18n/utils';
+
+export function getStaticPaths() {
+  return LANGS.flatMap((lang) =>
+    CATEGORIES.map((category) => ({
+      params: { lang: langParam(lang), category: category.slug },
+      props: { lang, category: category.slug },
+    }))
+  );
+}
+
+type Props = { lang: Lang; category: CategoryId };
+
+const { lang, category } = Astro.props;
+const t = useTranslations(lang);
+
+const label = getCategory(category).label[lang];
+const matching = orderedProjects.filter((project) => project.categories.includes(category));
+---
+
+<Layout title={`${label} — ${t('projectsHeading')} — ${t('siteName')}`} lang={lang}>
+  <Nav lang={lang} />
+  <section class="mx-auto max-w-[1200px] px-8 py-20">
+    <h1 class="mb-4 text-center text-4xl font-semibold text-white">{label}</h1>
+    <CategoryTabs lang={lang} active={category} />
+    <div class="mt-12 grid grid-cols-1 gap-8 tablet:grid-cols-2 desktop:grid-cols-4">
+      {matching.map((project) => <ProjectCard project={project} lang={lang} />)}
+    </div>
+  </section>
+  <Footer lang={lang} />
+</Layout>

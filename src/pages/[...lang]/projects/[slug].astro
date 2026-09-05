@@ -1,21 +1,27 @@
 ---
 import { Icon } from 'astro-icon/components';
-import Layout from '../../layouts/Layout.astro';
-import Nav from '../../components/Nav.astro';
-import Footer from '../../components/Footer.astro';
-import { projects, type Project } from '../../data/projects';
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../../../components/Nav.astro';
+import Footer from '../../../components/Footer.astro';
+import { projects, type Project } from '../../../data/projects';
+import { LANGS, type Lang } from '../../../i18n/types';
+import { useTranslations } from '../../../i18n/ui';
+import { langParam, localizePath } from '../../../i18n/utils';
 
 export function getStaticPaths() {
-  return projects.map((project) => ({
-    params: { slug: project.slug },
-    props: { project },
-  }));
+  return LANGS.flatMap((lang) =>
+    projects.map((project) => ({
+      params: { lang: langParam(lang), slug: project.slug },
+      props: { lang, project },
+    }))
+  );
 }
 
-type Props = { project: Project };
+type Props = { lang: Lang; project: Project };
 
-const { project } = Astro.props;
+const { lang, project } = Astro.props;
 const { title, description, links, images = [] } = project;
+const t = useTranslations(lang);
 
 // A lone image is centered in a narrower single column; multiple images use a
 // two-column grid.
@@ -25,15 +31,18 @@ const galleryClass = isSingleImage
   : 'mx-auto grid max-w-[1000px] grid-cols-1 justify-items-center gap-8 tablet:grid-cols-2';
 ---
 
-<Layout title={`${title} — Ricsi1231`}>
-  <Nav />
+<Layout title={`${title[lang]} — ${t('siteName')}`} lang={lang}>
+  <Nav lang={lang} />
   <article class="mx-auto max-w-[1200px] px-8 py-20">
-    <a href="/projects/" class="mb-8 inline-block text-muted transition-colors hover:text-white">
-      ← Back to projects
+    <a
+      href={localizePath(lang, '/projects/')}
+      class="mb-8 inline-block text-muted transition-colors hover:text-white"
+    >
+      {t('backToProjects')}
     </a>
 
-    <h1 class="mb-6 text-4xl font-semibold text-white">{title}</h1>
-    <p class="mb-8 text-muted" set:html={description} />
+    <h1 class="mb-6 text-4xl font-semibold text-white">{title[lang]}</h1>
+    <p class="mb-8 text-muted" set:html={description[lang]} />
 
     {
       links.length > 0 && (
@@ -46,7 +55,7 @@ const galleryClass = isSingleImage
               class="inline-flex items-center gap-2 rounded-[8px] bg-accent px-4 py-2 font-medium text-white transition-colors hover:bg-accent-dark"
             >
               {link.icon && <Icon name={link.icon} />}
-              {link.label}
+              {link.label[lang]}
             </a>
           ))}
         </div>
@@ -65,7 +74,7 @@ const galleryClass = isSingleImage
             >
               <img
                 src={image}
-                alt={`${title} — image ${index + 1}`}
+                alt={`${title[lang]} — ${t('image')} ${index + 1}`}
                 class="max-h-[360px] w-auto rounded-[10px] object-contain"
               />
             </a>
@@ -74,5 +83,5 @@ const galleryClass = isSingleImage
       )
     }
   </article>
-  <Footer />
+  <Footer lang={lang} />
 </Layout>

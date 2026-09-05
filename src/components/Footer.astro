@@ -1,7 +1,16 @@
 ---
 // Site copyright line.
+import type { Lang } from '../i18n/types';
+import { useTranslations } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <div class="mx-auto max-w-[1200px] p-4 text-center text-[0.8rem] text-white">
-  Copyright © 2026 Nagy Richárd. All Rights Reserved.
+  {t('footer')}
 </div>

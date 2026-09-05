@@ -16,5 +16,8 @@
     "astro": "^5.7.0",
     "astro-icon": "^1.1.5",
     "tailwindcss": "^4.1.0"
+  },
+  "devDependencies": {
+    "@iconify-json/circle-flags": "^1.2.10"
   }
 }

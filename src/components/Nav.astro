@@ -1,8 +1,22 @@
 ---
 // Top navigation: on the home page it shows the in-page "Services" anchor; on any
-// other page that first item becomes a "Home" link back to the index. Also a
-// "Projects" page link and an external GitHub link.
-const isHome = Astro.url.pathname === '/';
+// other page that first item becomes a "Home" link back to the index of the
+// current language. Also a "Projects" page link, an external GitHub link, and the
+// language switcher.
+import type { Lang } from '../i18n/types';
+import { useTranslations } from '../i18n/ui';
+import { localizePath, stripLang } from '../i18n/utils';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Compare against the canonical path so /hu/ counts as home just like /.
+const isHome = stripLang(Astro.url.pathname) === '/';
 ---
 
 <nav class="mx-auto flex max-w-[1200px] items-center justify-between gap-8 px-4 py-8">
@@ -10,24 +24,36 @@ const isHome = Astro.url.pathname === '/';
     <li class="link">
       {
         isHome ? (
-          <a href="#services" class="relative pb-3 text-white">Services</a>
+          <a href="#services" class="relative pb-3 text-white">
+            {t('navServices')}
+          </a>
         ) : (
-          <a href="/" class="relative pb-3 text-white">Home</a>
+          <a href={localizePath(lang, '/')} class="relative pb-3 text-white">
+            {t('navHome')}
+          </a>
         )
       }
     </li>
     <li class="link">
-      <a href="/projects/" class="relative pb-3 text-white">Projects</a>
+      <a href={localizePath(lang, '/projects/')} class="relative pb-3 text-white"
+        >{t('navProjects')}</a
+      >
     </li>
     <li class="link">
       <a
         href="https://github.com/Ricsi1231"
         target="_blank"
         rel="noopener noreferrer"
-        class="relative pb-3 text-white">GitHub</a
+        class="relative pb-3 text-white">{t('navGithub')}</a
       >
     </li>
   </ul>
+
+  <!-- ml-auto keeps the switcher right-aligned below the `desktop` breakpoint,
+       where the link list above is hidden and would otherwise leave it alone. -->
+  <div class="ml-auto">
+    <LanguageSwitcher lang={lang} />
+  </div>
 </nav>
 
 <style>

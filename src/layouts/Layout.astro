@@ -1,20 +1,42 @@
 ---
 import '../styles/global.css';
+import { DEFAULT_LANG, LANGS, type Lang } from '../i18n/types';
+import { useTranslations } from '../i18n/ui';
+import { localizePath, stripLang } from '../i18n/utils';
 
 interface Props {
   title?: string;
+  lang: Lang;
 }
 
-const { title = 'Ricsi1231' } = Astro.props;
+const { title, lang } = Astro.props;
+const t = useTranslations(lang);
+const pageTitle = title ?? t('siteName');
+
+// Every page exists in both languages at the same canonical path, so the
+// alternates are a straight prefix swap.
+const canonicalPath = stripLang(Astro.url.pathname);
+const alternate = (target: Lang) =>
+  new URL(localizePath(target, canonicalPath), Astro.site).href;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{pageTitle}</title>
+
+    <!-- The logo is white on transparency, so every icon below is pre-composited
+         onto the site background - otherwise it vanishes on a light tab bar. -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48 32x32 16x16" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#18181b" />
+    {LANGS.map((target) => <link rel="alternate" hreflang={target} href={alternate(target)} />)}
+    <link rel="alternate" hreflang="x-default" href={alternate(DEFAULT_LANG)} />
   </head>
   <body>
     <slot />

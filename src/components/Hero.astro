@@ -1,5 +1,14 @@
 ---
-// Hero / header section: intro heading, bio, and portrait image.
+// Hero / header section: intro heading, bio, and portrait image. The copy itself
+// lives in src/data/hero.ts so both languages sit side by side.
+import { hero } from '../data/hero';
+import type { Lang } from '../i18n/types';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
 ---
 
 <header
@@ -8,53 +17,21 @@
   <div class="content relative">
     <span class="blur"></span>
     <span class="blur"></span>
-    <h1 class="mb-4 text-5xl font-bold leading-[4rem] text-white">
-      Hi, I'm <span class="stroke">Nagy Richárd</span> Mechatronics engineering student
-    </h1>
-    <p class="mb-8 text-muted">
-      Welcome to my website! I'm passionate about electronics, automation, robotics, and
-      programming electrical devices.
-      <br />
-      <br />
-      During high school, I self-taught a lot about embedded systems (Hardware - Software),
-      industrial automation and robotics, which led me to compete in five competitions and
-      participate in an Erasmus program. Currently, I'm pursuing a Mechatronics Engineering
-      degree at Subotica Tech - College of Applied Sciences.
-      <br />
-      <br />
-      These days I focus on robotics, embedded systems (hardware and software), and
-      industrial automation.
-      <br />
-      <br />
-      I led both of my competition teams. Representing my school (VTS Subotica) at a
-      <a
-        href="https://plc2026.hu/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-white underline decoration-accent underline-offset-4 transition-colors hover:text-accent"
-        >PLC competition</a
-      >
-      held at SZTE in Szeged, Hungary, we placed 7th out of 20; and in the
-      <a
-        href="https://wro.rs/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-white underline decoration-accent underline-offset-4 transition-colors hover:text-accent"
-        >WRO Future Engineers</a
-      >
-      category, our team finished 2nd out of 7.
-      <br />
-      <br />
-      Let's connect! Feel free to reach out at richardnagy551@gmail.com, browse my
-      <a
-        href="/projects/"
-        class="text-white underline decoration-accent underline-offset-4 transition-colors hover:text-accent"
-        >projects here on this site</a
-      >, or check out my work on GitHub.
-    </p>
+    <!-- Hungarian compounds ("mérnökhallgató") are longer than their English
+         counterparts, so the heading steps down below the tablet breakpoint
+         instead of overflowing the viewport. -->
+    <h1
+      class="mb-4 text-4xl font-bold leading-tight hyphens-auto break-words text-white tablet:text-5xl tablet:leading-[4rem]"
+      set:html={hero.heading[lang]}
+    />
+    <p class="mb-8 text-muted" set:html={hero.body[lang]} />
   </div>
   <div class="image relative">
-    <img src="/images/header.png" alt="Nagy Richárd" class="mx-auto flex max-w-[600px]" />
+    <img
+      src="/images/header.png"
+      alt={hero.portraitAlt}
+      class="mx-auto flex max-w-[600px]"
+    />
   </div>
 </header>
 
@@ -67,7 +44,7 @@
   }
 
   /* Outlined text for the name, ported from header .content h1 span */
-  .stroke {
+  .content h1 :global(.stroke) {
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 1px #fff;
   }

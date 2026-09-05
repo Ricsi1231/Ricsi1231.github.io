@@ -1,10 +1,15 @@
 ---
 import { Icon } from 'astro-icon/components';
 import type { Service } from '../data/services';
+import type { Lang } from '../i18n/types';
 
-type Props = Service;
+interface Props {
+  service: Service;
+  lang: Lang;
+}
 
-const { icon, title, body } = Astro.props;
+const { service, lang } = Astro.props;
+const { icon, title, body } = service;
 ---
 
 <div
@@ -15,6 +20,6 @@ const { icon, title, body } = Astro.props;
   >
     <Icon name={icon} />
   </span>
-  <h4 class="mb-2 text-[1.2rem] font-semibold text-white">{title}</h4>
-  <p class="mb-4 text-muted" set:html={body} />
+  <h4 class="mb-2 text-[1.2rem] font-semibold text-white">{title[lang]}</h4>
+  <p class="mb-4 text-muted" set:html={body[lang]} />
 </div>
