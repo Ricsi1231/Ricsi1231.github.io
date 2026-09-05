@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
+import { resolveImage } from '../data/images';
 import type { Project } from '../data/projects';
 import type { Lang } from '../i18n/types';
 import { localizePath } from '../i18n/utils';
@@ -19,7 +21,14 @@ const { slug, title, summary, cover, icon } = project;
 >
   {
     cover ? (
-      <img src={cover} alt={title[lang]} class="aspect-video w-full object-cover" />
+      <Image
+        src={resolveImage(cover)}
+        alt={title[lang]}
+        widths={[320, 640, 960]}
+        sizes="(min-width: 900px) 25vw, (min-width: 600px) 50vw, 100vw"
+        format="webp"
+        class="aspect-video w-full object-cover"
+      />
     ) : (
       <div class="flex aspect-video w-full items-center justify-center bg-accent-dark/25 text-[3.5rem] text-white">
         {icon && <Icon name={icon} />}

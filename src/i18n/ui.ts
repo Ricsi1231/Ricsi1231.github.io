@@ -28,6 +28,8 @@ const strings = {
   /** Used to build gallery image alt text: "<project title> — image 2". */
   image: { en: 'image', hu: 'kép' },
 
+  contactLabel: { en: 'Get in touch', hu: 'Kapcsolat' },
+
   footer: {
     en: 'Copyright © 2026 Nagy Richárd. All Rights Reserved.',
     hu: 'Copyright © 2026 Nagy Richárd. Minden jog fenntartva.',

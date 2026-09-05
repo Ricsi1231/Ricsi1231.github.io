@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
+import { resolveImage } from '../../../data/images';
 import Layout from '../../../layouts/Layout.astro';
 import Nav from '../../../components/Nav.astro';
 import Footer from '../../../components/Footer.astro';
@@ -65,20 +67,26 @@ const galleryClass = isSingleImage
     {
       images.length > 0 && (
         <div class={galleryClass}>
-          {images.map((image, index) => (
-            <a
-              href={image}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex w-full items-center justify-center rounded-[15px] border-2 border-transparent bg-card p-3 transition-all duration-300 hover:border-white"
-            >
-              <img
-                src={image}
-                alt={`${title[lang]} — ${t('image')} ${index + 1}`}
-                class="max-h-[360px] w-auto rounded-[10px] object-contain"
-              />
-            </a>
-          ))}
+          {images.map((image, index) => {
+            const asset = resolveImage(image);
+            return (
+              <a
+                href={asset.src}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex w-full items-center justify-center rounded-[15px] border-2 border-transparent bg-card p-3 transition-all duration-300 hover:border-white"
+              >
+                <Image
+                  src={asset}
+                  alt={`${title[lang]} — ${t('image')} ${index + 1}`}
+                  widths={[480, 960, 1440]}
+                  sizes="(min-width: 600px) 50vw, 100vw"
+                  format="webp"
+                  class="max-h-[360px] w-auto rounded-[10px] object-contain"
+                />
+              </a>
+            );
+          })}
         </div>
       )
     }
