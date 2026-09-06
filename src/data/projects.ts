@@ -297,6 +297,35 @@ export const projects: Project[] = [
     images: ['/images/cartpole-sim.png'],
   },
   {
+    slug: 'embedded-business-card',
+    categories: ['embedded-hardware'],
+    title: {
+      en: 'Embedded Business Card',
+      hu: 'Beágyazott névjegykártya',
+    },
+    summary: {
+      en: 'A business-card-format PCB that lights up and reacts to motion — STM32C011, a 4×4 LED grid and an accelerometer, powered from USB-C.',
+      hu: 'Névjegykártya méretű NYÁK, amely világít és reagál a mozgásra — STM32C011, 4×4-es LED-mátrix és gyorsulásmérő, USB-C-ről táplálva.',
+    },
+    description: {
+      en: `A business card built as a circuit board. An STM32C011F6 drives a 4×4 grid of 16 LEDs through an AW9523B I²C LED driver, and a LIS2DH three-axis accelerometer lets the board react to being picked up and tilted. It runs straight from USB-C through a TLV757 3.3 V regulator, with ESD protection on the exposed lines. <br>
+      Debug and expansion stay accessible rather than hidden: a Tag-Connect SWD footprint for programming, and the I²C and SPI buses plus both accelerometer interrupts broken out to labelled pads along the edge. It is a 4-layer board (2 oz outer copper, 1 oz inner, 1.66 mm) in black solder mask with yellow silkscreen and an ENIG finish, drawn in KiCad 10 for JLCPCB. <br>
+      The part I care most about is the process around it. Every design rule traces to a written record of the fab's capability, and a lint script proves that on every run — a rule file that asks for too little produces a clean DRC report, which is the failure mode this is built to catch. DRC, ERC and review findings are baselined so a new one is visible the day it appears, a release check defines what "releasable" actually means, and a CI pipeline validates, versions and publishes from conventional commits. <br>
+      The sources are not public.`,
+      hu: `Névjegykártya, nyomtatott áramköri lapként megépítve. Egy STM32C011F6 hajt meg 16 LED-et 4×4-es mátrixban, egy AW9523B I²C-s LED-meghajtón keresztül, egy LIS2DH háromtengelyes gyorsulásmérő pedig lehetővé teszi, hogy a panel reagáljon a felemelésre és a döntésre. Közvetlenül USB-C-ről működik egy TLV757 3,3 V-os stabilizátoron át, a kivezetett vonalakon ESD-védelemmel. <br>
+      A hibakeresés és a bővítés nem rejtett, hanem elérhető: Tag-Connect SWD-lábnyom a programozáshoz, valamint az I²C- és SPI-busz és a gyorsulásmérő mindkét megszakításvonala feliratozott forrpontokra kivezetve a panel szélén. Négyrétegű panel (2 oz külső, 1 oz belső réz, 1,66 mm), fekete forrasztásgátló lakkal, sárga szitanyomással és ENIG felülettel, KiCad 10-ben tervezve, JLCPCB-re. <br>
+      Számomra a körülötte felépített folyamat a legfontosabb. Minden tervezési szabály visszavezethető a gyártó dokumentált képességeire, és ezt egy lint szkript minden futáskor bizonyítja is — a túl megengedő szabályfájl ugyanis tiszta DRC-jelentést ad, és pontosan ezt a hibaforrást hivatott elkapni. A DRC-, ERC- és review-eredmények alapvonalhoz vannak rögzítve, így egy új találat már a megjelenése napján látszik; egy release-ellenőrzés definiálja, mit jelent a „kiadható” állapot, egy CI-folyamat pedig conventional commitok alapján validál, verziózik és publikál. <br>
+      A források nem nyilvánosak.`,
+    },
+    icon: 'ri:bank-card-line',
+    cover: '/images/embedded-business-card-top.png',
+    links: [],
+    images: [
+      '/images/embedded-business-card-top.png',
+      '/images/embedded-business-card-pinout.png',
+    ],
+  },
+  {
     slug: 'lcsc-bom-checker',
     categories: ['embedded-hardware'],
     title: {
