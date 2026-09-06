@@ -1,8 +1,9 @@
 ---
 // Top navigation: on the home page it shows the in-page "Services" anchor; on any
 // other page that first item becomes a "Home" link back to the index of the
-// current language. Also a "Projects" page link, an external GitHub link, and the
-// language switcher.
+// current language. "Articles" targets the same section on the home page, so off
+// the home page it links back to the index with the anchor attached. Also a
+// "Projects" page link, an external GitHub link, and the language switcher.
 import type { Lang } from '../i18n/types';
 import { useTranslations } from '../i18n/ui';
 import { localizePath, stripLang } from '../i18n/utils';
@@ -17,6 +18,10 @@ const t = useTranslations(lang);
 
 // Compare against the canonical path so /hu/ counts as home just like /.
 const isHome = stripLang(Astro.url.pathname) === '/';
+
+// The articles section lives on the home page, so away from it the anchor needs
+// the index path in front of it to work as a link.
+const articlesHref = isHome ? '#articles' : `${localizePath(lang, '/')}#articles`;
 ---
 
 <nav class="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-x-3 gap-y-4 px-4 py-6 tablet:gap-8 tablet:py-8">
@@ -33,6 +38,9 @@ const isHome = stripLang(Astro.url.pathname) === '/';
           </a>
         )
       }
+    </li>
+    <li class="link">
+      <a href={articlesHref} class="relative pb-3 text-white">{t('navArticles')}</a>
     </li>
     <li class="link">
       <a href={localizePath(lang, '/projects/')} class="relative pb-3 text-white"

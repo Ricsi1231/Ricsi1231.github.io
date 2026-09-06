@@ -11,6 +11,7 @@ const strings = {
 
   navHome: { en: 'Home', hu: 'Főoldal' },
   navServices: { en: 'Services', hu: 'Szolgáltatások' },
+  navArticles: { en: 'Articles', hu: 'Cikkek' },
   navProjects: { en: 'Projects', hu: 'Projektek' },
   navGithub: { en: 'GitHub', hu: 'GitHub' },
 
