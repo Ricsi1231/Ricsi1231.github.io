@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,7 +19,17 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
-  integrations: [icon()],
+  integrations: [
+    icon(),
+    // Reads the i18n block above, so every page is listed once with its
+    // alternate-language counterpart alongside it.
+    sitemap({
+      i18n: {
+        defaultLocale: 'en',
+        locales: { en: 'en', hu: 'hu' },
+      },
+    }),
+  ],
   vite: {
     plugins: [tailwindcss()],
   },

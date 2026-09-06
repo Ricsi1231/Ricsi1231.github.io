@@ -28,7 +28,11 @@ const label = getCategory(category).label[lang];
 const matching = orderedProjects.filter((project) => project.categories.includes(category));
 ---
 
-<Layout title={`${label} — ${t('projectsHeading')} — ${t('siteName')}`} lang={lang}>
+<Layout
+  title={`${label} — ${t('projectsHeading')} — ${t('siteName')}`}
+  lang={lang}
+  description={`${label} — ${t('projectsMetaDescription')}`}
+>
   <Nav lang={lang} />
   <section class="mx-auto max-w-[1200px] px-8 py-20">
     <h1 class="mb-4 text-center text-4xl font-semibold text-white">{label}</h1>

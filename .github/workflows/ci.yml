@@ -1,0 +1,29 @@
+name: CI
+
+# Deploy only runs on pushes to main, so without this a broken pull request is
+# only caught after merge - when the deploy fails and the live site silently
+# stays on the previous version.
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Check the build produced the expected pages
+        run: |
+          test -f dist/index.html
+          test -f dist/hu/index.html
+          test -f dist/404.html
+          test -f dist/sitemap-index.xml
+          test -f dist/robots.txt
+          echo "pages built: $(find dist -name '*.html' | wc -l)"

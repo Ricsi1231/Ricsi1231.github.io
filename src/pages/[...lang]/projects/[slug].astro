@@ -22,7 +22,7 @@ export function getStaticPaths() {
 type Props = { lang: Lang; project: Project };
 
 const { lang, project } = Astro.props;
-const { title, description, links, images = [] } = project;
+const { title, summary, description, cover, links, images = [] } = project;
 const t = useTranslations(lang);
 
 // A lone image is centered in a narrower single column; multiple images use a
@@ -33,7 +33,12 @@ const galleryClass = isSingleImage
   : 'mx-auto grid max-w-[1000px] grid-cols-1 justify-items-center gap-8 tablet:grid-cols-2';
 ---
 
-<Layout title={`${title[lang]} — ${t('siteName')}`} lang={lang}>
+<Layout
+  title={`${title[lang]} — ${t('siteName')}`}
+  lang={lang}
+  description={summary[lang]}
+  image={cover ? resolveImage(cover) : undefined}
+>
   <Nav lang={lang} />
   <article class="mx-auto max-w-[1200px] px-8 py-20">
     <a

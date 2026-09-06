@@ -1,0 +1,39 @@
+---
+// GitHub Pages serves this for any unmatched URL. It is a single page shared by
+// both languages, so it leads with English and repeats the essentials in
+// Hungarian rather than guessing which the visitor wanted.
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { DEFAULT_LANG } from '../i18n/types';
+import { ui } from '../i18n/ui';
+---
+
+<Layout title={`404 — ${ui.siteName.en}`} lang={DEFAULT_LANG} description={ui.notFoundBody.en}>
+  <Nav lang={DEFAULT_LANG} />
+
+  <section class="mx-auto flex max-w-[700px] flex-col items-center px-8 py-24 text-center">
+    <p class="mb-4 text-[5rem] font-bold leading-none text-accent">404</p>
+
+    <h1 class="mb-4 text-3xl font-semibold text-white">{ui.notFoundTitle.en}</h1>
+    <p class="mb-2 text-muted">{ui.notFoundBody.en}</p>
+
+    <h2 class="mt-8 mb-4 text-3xl font-semibold text-white">{ui.notFoundTitle.hu}</h2>
+    <p class="text-muted">{ui.notFoundBody.hu}</p>
+
+    <div class="mt-10 flex flex-wrap justify-center gap-4">
+      <a
+        href="/"
+        class="rounded-[8px] bg-accent px-4 py-2 font-medium text-white transition-colors hover:bg-accent-dark"
+        >{ui.backHome.en}</a
+      >
+      <a
+        href="/hu/"
+        class="rounded-[8px] border-2 border-transparent bg-card px-4 py-2 font-medium text-white transition-all duration-300 hover:border-white hover:bg-card-hover"
+        >{ui.backHome.hu}</a
+      >
+    </div>
+  </section>
+
+  <Footer lang={DEFAULT_LANG} />
+</Layout>

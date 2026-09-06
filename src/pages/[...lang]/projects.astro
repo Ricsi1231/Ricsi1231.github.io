@@ -22,7 +22,11 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<Layout title={`${t('projectsHeading')} — ${t('siteName')}`} lang={lang}>
+<Layout
+  title={`${t('projectsHeading')} — ${t('siteName')}`}
+  lang={lang}
+  description={t('projectsMetaDescription')}
+>
   <Nav lang={lang} />
   <section class="mx-auto max-w-[1200px] px-8 py-20">
     <h1 class="mb-4 text-center text-4xl font-semibold text-white">{t('projectsHeading')}</h1>

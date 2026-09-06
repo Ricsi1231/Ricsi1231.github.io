@@ -1,5 +1,8 @@
 ---
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import '../styles/global.css';
+import defaultSocial from '../assets/images/header.png';
 import { DEFAULT_LANG, LANGS, type Lang } from '../i18n/types';
 import { useTranslations } from '../i18n/ui';
 import { localizePath, stripLang } from '../i18n/utils';
@@ -7,11 +10,23 @@ import { localizePath, stripLang } from '../i18n/utils';
 interface Props {
   title?: string;
   lang: Lang;
+  /** Sentence shown in search results and link previews. */
+  description?: string;
+  /** Link-preview image. Falls back to the site's hero artwork. */
+  image?: ImageMetadata;
 }
 
-const { title, lang } = Astro.props;
+const { title, lang, description, image } = Astro.props;
 const t = useTranslations(lang);
 const pageTitle = title ?? t('siteName');
+const pageDescription = description ?? t('metaDescription');
+
+// Link previews need an absolute URL to a raster image, so the asset is resized
+// once here rather than reusing whatever srcset variant a card happened to emit.
+const social = await getImage({ src: image ?? defaultSocial, width: 1200, format: 'jpg' });
+const socialUrl = new URL(social.src, Astro.site).href;
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+const OG_LOCALE: Record<Lang, string> = { en: 'en_GB', hu: 'hu_HU' };
 
 // Every page exists in both languages at the same canonical path, so the
 // alternates are a straight prefix swap.
@@ -27,6 +42,28 @@ const alternate = (target: Lang) =>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={pageUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={t('siteName')} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content={socialUrl} />
+    <meta property="og:image:width" content={String(social.attributes.width ?? 1200)} />
+    <meta property="og:image:height" content={String(social.attributes.height ?? 630)} />
+    <meta property="og:locale" content={OG_LOCALE[lang]} />
+    {
+      LANGS.filter((l) => l !== lang).map((l) => (
+        <meta property="og:locale:alternate" content={OG_LOCALE[l]} />
+      ))
+    }
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={socialUrl} />
 
     <!-- The logo is white on transparency, so every icon below is pre-composited
          onto the site background - otherwise it vanishes on a light tab bar. -->
