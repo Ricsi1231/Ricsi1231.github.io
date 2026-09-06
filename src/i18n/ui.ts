@@ -15,6 +15,21 @@ const strings = {
   navProjects: { en: 'Projects', hu: 'Projektek' },
   navGithub: { en: 'GitHub', hu: 'GitHub' },
 
+  metaDescription: {
+    en: 'Mechatronics engineer working on robotics, embedded systems and industrial automation — custom PCBs, real-time firmware, PLC control and ROS 2.',
+    hu: 'Mechatronikai mérnök, aki robotikával, beágyazott rendszerekkel és ipari automatizálással foglalkozik — egyedi NYÁK-ok, valós idejű firmware, PLC-vezérlés és ROS 2.',
+  },
+  projectsMetaDescription: {
+    en: 'Hardware, robotics, industrial automation and control projects — custom PCBs, embedded firmware, PLC systems and ROS 2 navigation.',
+    hu: 'Hardveres, robotikai, ipari automatizálási és szabályozási projektek — egyedi NYÁK-ok, beágyazott firmware, PLC-rendszerek és ROS 2 navigáció.',
+  },
+  notFoundTitle: { en: 'Page not found', hu: 'Az oldal nem található' },
+  notFoundBody: {
+    en: 'That page does not exist. It may have moved, or the link may be wrong.',
+    hu: 'Ez az oldal nem létezik. Lehet, hogy áthelyezték, vagy hibás a hivatkozás.',
+  },
+  backHome: { en: 'Back to home', hu: 'Vissza a főoldalra' },
+
   articlesHeading: { en: 'Articles', hu: 'Cikkek' },
   articlesIntro: {
     en: 'I write up the engineering behind these projects — the decisions, the numbers, and the parts that did not work first time.',

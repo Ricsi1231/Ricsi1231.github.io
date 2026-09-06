@@ -18,6 +18,7 @@
     "tailwindcss": "^4.1.0"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "@iconify-json/circle-flags": "^1.2.10"
   }
 }
