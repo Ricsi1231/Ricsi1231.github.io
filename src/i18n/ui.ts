@@ -26,16 +26,16 @@ const strings = {
   },
   coursesHeading: { en: 'Courses', hu: 'Kurzusok' },
   coursesIntro: {
-    en: 'Courses I am putting together on the things I do every day — embedded firmware, hardware design, industrial robotics and PLC automation, taught the way I wish they had been taught to me.',
-    hu: 'Kurzusok, amelyeket azokról a területekről állítok össze, amelyekkel nap mint nap foglalkozom — beágyazott firmware, hardvertervezés, ipari robotika és PLC-automatizálás, úgy tanítva, ahogy annak idején én szerettem volna megtanulni.',
+    en: 'Courses I am putting together on the things I do every day — embedded software, hardware design, industrial robotics and PLC automation, taught the way I wish they had been taught to me.',
+    hu: 'Kurzusok, amelyeket azokról a területekről állítok össze, amelyekkel nap mint nap foglalkozom — beágyazott szoftverfejlesztés, hardvertervezés, ipari robotika és PLC-automatizálás, úgy tanítva, ahogy annak idején én szerettem volna megtanulni.',
   },
   coursesTopicsNote: {
     en: 'Each card lists the main topics — the courses cover more ground than fits on one.',
     hu: 'A kártyákon a fő témák szerepelnek — a kurzusok ennél több területet érintenek.',
   },
   coursesMetaDescription: {
-    en: 'Courses on embedded firmware with Arduino, hardware and PCB design, industrial robotics in FANUC RoboGuide, and PLC programming with TIA Portal and Factory I/O.',
-    hu: 'Kurzusok beágyazott firmware-ről Arduinóval, hardver- és NYÁK-tervezésről, ipari robotikáról FANUC RoboGuide-ban, valamint PLC-programozásról TIA Portallal és Factory I/O-val.',
+    en: 'Courses on embedded software with Arduino, hardware and PCB design, industrial robotics in FANUC RoboGuide, and PLC programming with TIA Portal and Factory I/O.',
+    hu: 'Kurzusok beágyazott szoftverfejlesztésről Arduinóval, hardver- és NYÁK-tervezésről, ipari robotikáról FANUC RoboGuide-ban, valamint PLC-programozásról TIA Portallal és Factory I/O-val.',
   },
   comingSoon: { en: 'Coming soon', hu: 'Hamarosan' },
   courseNotifyIntro: {

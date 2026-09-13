@@ -30,8 +30,8 @@ export const courses: Course[] = [
       hu: 'Beágyazott rendszerek szoftverfejlesztésének alapjai Arduino platformon',
     },
     summary: {
-      en: 'Firmware from first principles, on hardware you can hold — reading sensors, driving servos and motors, timers, interrupts and serial communication, written so the code stays readable as the project grows.',
-      hu: 'Firmware az alapoktól, kézzel fogható hardveren — szenzorok olvasása, szervók és motorok meghajtása, időzítők, megszakítások és soros kommunikáció, úgy megírva, hogy a kód a projekt növekedésével is olvasható maradjon.',
+      en: 'Embedded software from first principles, on hardware you can hold — reading sensors, driving servos and motors, timers, interrupts and serial communication, written so the code stays readable as the project grows.',
+      hu: 'Beágyazott szoftver az alapoktól, kézzel fogható hardveren — szenzorok olvasása, szervók és motorok meghajtása, időzítők, megszakítások és soros kommunikáció, úgy megírva, hogy a kód a projekt növekedésével is olvasható maradjon.',
     },
     topics: {
       en: [
@@ -42,7 +42,7 @@ export const courses: Course[] = [
         'Reading a datasheet and driving a sensor from it',
         'Driving actuators: hobby servos, DC motors, relays, and the drivers they need',
         'Object-oriented basics: classes, objects, and turning a sensor or motor into a reusable class',
-        'State machines, and splitting firmware into modules',
+        'State machines, and splitting the code into modules',
       ],
       hu: [
         'Az IDE telepítése, és az első program feltöltése a panelre',
@@ -52,7 +52,7 @@ export const courses: Course[] = [
         'Adatlap olvasása és szenzor meghajtása belőle',
         'Beavatkozók meghajtása: hobbiszervók, DC-motorok, relék, és a hozzájuk tartozó meghajtók',
         'Objektumorientált alapok: osztályok, objektumok, és egy szenzor vagy motor újrahasznosítható osztállyá alakítása',
-        'Állapotgépek és a firmware modulokra bontása',
+        'Állapotgépek és a kód modulokra bontása',
       ],
     },
   },
@@ -65,8 +65,8 @@ export const courses: Course[] = [
       hu: 'Hardvertervezés alapjai',
     },
     summary: {
-      en: 'From an idea to a board you can actually order. Every topic starts with the theory, then we build it in KiCad — working up to one complete development board with its microcontroller, sensors, actuators and analog and digital I/O. It is the same board the embedded firmware course runs on.',
-      hu: 'Az ötlettől a ténylegesen megrendelhető panelig. Minden téma az elmélettel kezdődik, majd megépítjük KiCadben — így áll össze egy teljes fejlesztőpanel a mikrovezérlőjével, szenzoraival, beavatkozóival, valamint analóg és digitális I/O-jával. Ugyanaz a panel, amelyen a beágyazott firmware-kurzus fut.',
+      en: 'From an idea to a board you can actually order. Every topic starts with the theory, then we build it in KiCad — working up to one complete development board with its microcontroller, sensors, actuators and analog and digital I/O. It is the same board the embedded software course runs on.',
+      hu: 'Az ötlettől a ténylegesen megrendelhető panelig. Minden téma az elmélettel kezdődik, majd megépítjük KiCadben — így áll össze egy teljes fejlesztőpanel a mikrovezérlőjével, szenzoraival, beavatkozóival, valamint analóg és digitális I/O-jával. Ugyanaz a panel, amelyen a beágyazott szoftverfejlesztési kurzus fut.',
     },
     topics: {
       en: [
