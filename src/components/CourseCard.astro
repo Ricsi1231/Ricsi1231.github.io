@@ -38,9 +38,18 @@ const isComingSoon = course.status === 'coming-soon';
   </div>
 
   <h3 class="mb-3 text-[1.3rem] leading-snug font-semibold text-white">{course.title[lang]}</h3>
-  <p class="mb-6 text-muted">{course.summary[lang]}</p>
+  <p class="mb-4 text-muted">{course.summary[lang]}</p>
 
-  <ul class="list-disc space-y-2 pl-5 text-[0.95rem] text-muted marker:text-accent">
+  {
+    course.prerequisite && (
+      <p class="mb-5 flex items-start gap-2 text-[0.85rem] text-muted/80">
+        <Icon name="ri:information-line" class="mt-[0.2rem] shrink-0 text-accent" />
+        <span>{course.prerequisite[lang]}</span>
+      </p>
+    )
+  }
+
+  <ul class="mt-2 list-disc space-y-2 pl-5 text-[0.95rem] text-muted marker:text-accent">
     {course.topics[lang].map((topic) => <li>{topic}</li>)}
   </ul>
 

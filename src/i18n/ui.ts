@@ -36,8 +36,8 @@ const strings = {
 
   basicsHeading: { en: 'Basics', hu: 'Alapok' },
   basicsNote: {
-    en: 'No prior knowledge needed — each one starts from installing the software.',
-    hu: 'Előzetes tudás nem szükséges — mindegyik a szoftver telepítésével kezdődik.',
+    en: 'Each one starts from installing the software. No prior knowledge needed, except where a course says otherwise.',
+    hu: 'Mindegyik a szoftver telepítésével kezdődik. Előzetes tudás nem szükséges, kivéve ahol a kurzus mást jelez.',
   },
   advancedHeading: { en: 'Advanced', hu: 'Haladó' },
   advancedNote: {

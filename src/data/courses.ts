@@ -24,6 +24,11 @@ export interface Course {
   summary: Localized<string>;
   /** What the course covers, one line per topic. */
   topics: Localized<string[]>;
+  /**
+   * Stated only where a course needs something beyond the section's promise.
+   * Most courses assume nothing, so this is absent on them rather than empty.
+   */
+  prerequisite?: Localized<string>;
   /** Where to enrol. Only meaningful once `status` is 'available'. */
   url?: string;
 }
@@ -49,6 +54,7 @@ export const courses: Course[] = [
         'Timers, interrupts, and non-blocking code instead of delay()',
         'Serial communication: UART, I²C and SPI',
         'Reading a datasheet and driving a sensor from it',
+        'PWM: duty cycle, frequency, and turning a digital pin into a variable output',
         'Driving actuators: hobby servos, DC motors, relays, and the drivers they need',
         'Object-oriented basics: classes, objects, and turning a sensor or motor into a reusable class',
         'State machines, and splitting the code into modules',
@@ -59,6 +65,7 @@ export const courses: Course[] = [
         'Időzítők, megszakítások és nem blokkoló kód a delay() helyett',
         'Soros kommunikáció: UART, I²C és SPI',
         'Adatlap olvasása és szenzor meghajtása belőle',
+        'PWM: kitöltési tényező, frekvencia, és hogyan lesz a digitális lábból változtatható kimenet',
         'Beavatkozók meghajtása: hobbiszervók, DC-motorok, relék, és a hozzájuk tartozó meghajtók',
         'Objektumorientált alapok: osztályok, objektumok, és egy szenzor vagy motor újrahasznosítható osztállyá alakítása',
         'Állapotgépek és a kód modulokra bontása',
@@ -83,6 +90,7 @@ export const courses: Course[] = [
         'Installing KiCad, and finding your way around the tools',
         'Schematic capture, and what a good schematic makes obvious',
         'Choosing components: datasheets, footprints and availability',
+        'Power: choosing a regulator, decoupling, and getting a clean supply to the microcontroller',
         'Connectors and headers: bringing sensors, actuators and analog/digital I/O off the board',
         'PCB layout basics — stackup, routing and ground',
         'Design rules that match what your fab can actually build',
@@ -93,6 +101,7 @@ export const courses: Course[] = [
         'A KiCad telepítése és az eszközök megismerése',
         'Kapcsolási rajz készítése, és hogy mit tesz nyilvánvalóvá egy jó rajz',
         'Alkatrészválasztás: adatlapok, lábnyomok és beszerezhetőség',
+        'Tápellátás: stabilizátor kiválasztása, hidegítés, és tiszta tápfeszültség a mikrovezérlőnek',
         'Csatlakozók és tüskesorok: szenzorok, beavatkozók és analóg/digitális I/O kivezetése a panelről',
         'NYÁK-tervezés alapjai — rétegfelépítés, huzalozás és földelés',
         'Tervezési szabályok, amelyek illeszkednek a gyártó tényleges képességeihez',
@@ -152,6 +161,10 @@ export const courses: Course[] = [
         'P, PI és PID összehasonlítása ugyanazon a szakaszon, és értelmes ábrák készítése',
       ],
     },
+    prerequisite: {
+      en: 'Assumes basic algebra and calculus, differential equations, and some signals and systems.',
+      hu: 'Alapszintű algebra és analízis, differenciálegyenletek, valamint alapvető jelek és rendszerek ismerete szükséges.',
+    },
   },
   {
     slug: 'ros2-gazebo-basics',
@@ -170,6 +183,7 @@ export const courses: Course[] = [
       en: [
         'Installing ROS 2 and Gazebo, and running your first node',
         'Nodes, topics and messages — how the pieces of a ROS system talk to each other',
+        'Workspaces and packages: colcon, and where your code actually lives',
         'Writing nodes in Python: publishers, subscribers and timers',
         'Services, actions and parameters, and when to reach for each',
         'Launch files: starting a whole system instead of six terminals',
@@ -184,6 +198,7 @@ export const courses: Course[] = [
       hu: [
         'A ROS 2 és a Gazebo telepítése, és az első node futtatása',
         'Node-ok, topicok és üzenetek — hogyan beszélnek egymással egy ROS-rendszer részei',
+        'Munkaterületek és csomagok: a colcon, és hogy valójában hol lakik a kódod',
         'Node-ok írása Pythonban: publisher, subscriber és időzítő',
         'Service-ek, action-ök és paraméterek, és hogy mikor melyikhez nyúljunk',
         'Launch fájlok: egy teljes rendszer indítása hat terminál helyett',
@@ -268,7 +283,9 @@ export const courses: Course[] = [
         'The scan cycle, and how it shapes the way you write logic',
         'Connecting TIA Portal to Factory I/O, and getting the I/O mapping right',
         'Ladder logic: contacts, coils, timers and counters',
+        'Analog I/O: reading a level or a temperature, and scaling raw counts to engineering units',
         'Structuring a process as a state machine — start, stop, reset and emergency stop',
+        'Basic process control: setpoints, on/off control with hysteresis, and sequencing a batch',
         'Plenty of practice: complete processes built and debugged end to end in simulation',
       ],
       hu: [
@@ -278,7 +295,9 @@ export const courses: Course[] = [
         'A ciklusidő, és hogyan alakítja a logikaírás módját',
         'A TIA Portal és a Factory I/O összekötése, és a helyes I/O-hozzárendelés',
         'Létradiagram: érintkezők, tekercsek, időzítők és számlálók',
+        'Analóg I/O: szint vagy hőmérséklet olvasása, és a nyers értékek átskálázása mértékegységre',
         'Folyamat felépítése állapotgépként — indítás, leállítás, alaphelyzet és vészleállítás',
+        'Alapvető folyamatirányítás: alapjelek, kétállású szabályozás hiszterézissel, és szakaszos folyamat vezérlése',
         'Rengeteg gyakorlás: teljes folyamatok felépítése és hibakeresése végig szimulációban',
       ],
     },
@@ -293,28 +312,40 @@ export const courses: Course[] = [
       hu: 'Haladó beágyazott szoftverfejlesztés ESP-IDF-fel és FreeRTOS-szal',
     },
     summary: {
-      en: 'Off Arduino and onto a real toolchain — modern C++ on ESP-IDF, FreeRTOS tasks, wired and wireless protocols, and the architecture and version control that keep a growing codebase under control.',
-      hu: 'Túl az Arduinón, valódi eszközláncon — modern C++ ESP-IDF-en, FreeRTOS taszkok, vezetékes és vezeték nélküli protokollok, valamint az az architektúra és verziókövetés, ami kordában tartja a növekvő kódbázist.',
+      en: 'Off Arduino and onto a real toolchain — modern C++ on ESP-IDF, a project structured into components, FreeRTOS and the concurrency bugs it invites, wired and wireless communication, and the version control and testing that keep a growing codebase under control.',
+      hu: 'Túl az Arduinón, valódi eszközláncon — modern C++ ESP-IDF-en, komponensekre bontott projekt, FreeRTOS és a vele járó konkurenciahibák, vezetékes és vezeték nélküli kommunikáció, valamint az a verziókövetés és tesztelés, ami kordában tartja a növekvő kódbázist.',
     },
     topics: {
       en: [
         'Setting up ESP-IDF, and what a real toolchain gives you over the Arduino IDE',
+        'Components and CMake: structuring a project that is more than one file',
         'Modern C++ on a microcontroller: classes, RAII, and what to avoid',
         'Architecture: interfaces, dependency injection, and code you can actually test',
-        'FreeRTOS: tasks, priorities, queues and semaphores',
-        'Sharing data safely between tasks, and the bugs that appear when you do not',
+        'Unit testing firmware, on the host and on the target',
+        'FreeRTOS: tasks, priorities, and how the scheduler decides',
+        'Queues, semaphores and mutexes: moving data between tasks',
+        'Race conditions and priority inversion — the bugs concurrency invents',
         'Wired protocols: UART, I²C, SPI and RS485',
-        'Networking: WiFi, Ethernet, TCP/IP and MQTT',
+        'WiFi: connecting, provisioning, and staying up when the network is not',
+        'Ethernet and TCP/IP: sockets, and talking to something off the board',
+        'Storage and OTA: NVS, flash, and updating firmware after it has shipped',
+        'Debugging with JTAG, and reading a crash dump',
         'Git in practice: branches, history, and working with other people',
       ],
       hu: [
         'Az ESP-IDF beállítása, és hogy mit ad egy valódi eszközlánc az Arduino IDE-hez képest',
+        'Komponensek és CMake: egynél több fájlból álló projekt felépítése',
         'Modern C++ mikrovezérlőn: osztályok, RAII, és amit kerülni érdemes',
         'Architektúra: interfészek, függőséginjektálás, és valóban tesztelhető kód',
-        'FreeRTOS: taszkok, prioritások, üzenetsorok és szemaforok',
-        'Adatok biztonságos megosztása taszkok között, és a hibák, amelyek enélkül jelentkeznek',
+        'Firmware egységtesztelése, gazdagépen és célhardveren',
+        'FreeRTOS: taszkok, prioritások, és hogyan dönt az ütemező',
+        'Üzenetsorok, szemaforok és mutexek: adatmozgatás taszkok között',
+        'Versenyhelyzetek és prioritásinverzió — a hibák, amelyeket a konkurencia hoz magával',
         'Vezetékes protokollok: UART, I²C, SPI és RS485',
-        'Hálózatkezelés: WiFi, Ethernet, TCP/IP és MQTT',
+        'WiFi: csatlakozás, üzembe helyezés, és fennmaradás akkor is, ha a hálózat nem az',
+        'Ethernet és TCP/IP: socketek, és kommunikáció a panelen kívülre',
+        'Tárolás és OTA: NVS, flash, és firmware-frissítés a kiszállítás után',
+        'Hibakeresés JTAG-gel, és a crash dump olvasása',
         'Git a gyakorlatban: branchek, előzmények, és közös munka másokkal',
       ],
     },
