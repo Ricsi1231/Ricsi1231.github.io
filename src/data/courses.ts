@@ -35,6 +35,7 @@ export const courses: Course[] = [
     },
     topics: {
       en: [
+        'Installing the IDE and getting your first sketch onto a board',
         'Digital and analog I/O, and what the microcontroller is actually doing',
         'Timers, interrupts, and non-blocking code instead of delay()',
         'Serial communication: UART, I²C and SPI',
@@ -44,6 +45,7 @@ export const courses: Course[] = [
         'State machines, and splitting firmware into modules',
       ],
       hu: [
+        'Az IDE telepítése, és az első program feltöltése a panelre',
         'Digitális és analóg I/O, és hogy valójában mit csinál a mikrovezérlő',
         'Időzítők, megszakítások és nem blokkoló kód a delay() helyett',
         'Soros kommunikáció: UART, I²C és SPI',
@@ -63,27 +65,29 @@ export const courses: Course[] = [
       hu: 'Hardvertervezés alapjai',
     },
     summary: {
-      en: 'From an idea to a board you can actually order. We design two boards over the course — one of them the development board the embedded firmware course runs on, with its sensors, actuators and analog and digital I/O — and carry them through to a manufacturing package you could send to a fab today.',
-      hu: 'Az ötlettől a ténylegesen megrendelhető panelig. A kurzus során két panelt tervezünk — az egyik az a fejlesztőpanel, amelyen a beágyazott firmware-kurzus fut, szenzorokkal, beavatkozókkal, valamint analóg és digitális I/O-val —, és elvisszük őket a gyártási csomagig, amelyet akár ma elküldhetnél a gyártónak.',
+      en: 'From an idea to a board you can actually order. Every topic starts with the theory, then we build it in KiCad — working up to one complete development board with its microcontroller, sensors, actuators and analog and digital I/O. It is the same board the embedded firmware course runs on.',
+      hu: 'Az ötlettől a ténylegesen megrendelhető panelig. Minden téma az elmélettel kezdődik, majd megépítjük KiCadben — így áll össze egy teljes fejlesztőpanel a mikrovezérlőjével, szenzoraival, beavatkozóival, valamint analóg és digitális I/O-jával. Ugyanaz a panel, amelyen a beágyazott firmware-kurzus fut.',
     },
     topics: {
       en: [
+        'Installing KiCad, and finding your way around the tools',
         'Schematic capture, and what a good schematic makes obvious',
         'Choosing components: datasheets, footprints and availability',
         'Connectors and headers: bringing sensors, actuators and analog/digital I/O off the board',
         'PCB layout basics — stackup, routing and ground',
         'Design rules that match what your fab can actually build',
         'Manufacturing outputs: gerbers, drill files, BOM and pick-and-place',
-        'The project: two boards, each carried from a blank sheet to ordered',
+        'The project: one complete development board, carried from blank sheet to ordered',
       ],
       hu: [
+        'A KiCad telepítése és az eszközök megismerése',
         'Kapcsolási rajz készítése, és hogy mit tesz nyilvánvalóvá egy jó rajz',
         'Alkatrészválasztás: adatlapok, lábnyomok és beszerezhetőség',
         'Csatlakozók és tüskesorok: szenzorok, beavatkozók és analóg/digitális I/O kivezetése a panelről',
         'NYÁK-tervezés alapjai — rétegfelépítés, huzalozás és földelés',
         'Tervezési szabályok, amelyek illeszkednek a gyártó tényleges képességeihez',
         'Gyártási fájlok: Gerber, fúrásfájlok, anyagjegyzék és beültetési pozíciók',
-        'A projekt: két panel, mindkettő az üres laptól a megrendelésig',
+        'A projekt: egy teljes fejlesztőpanel, az üres laptól a megrendelésig',
       ],
     },
   },
@@ -101,6 +105,7 @@ export const courses: Course[] = [
     },
     topics: {
       en: [
+        'Installing RoboGuide, and setting up your first cell',
         'Building a workcell: robot, tooling, fixtures and part flow',
         'Joint, linear and circular motion — and when each is the right one',
         'Tool and user frames, and why a wrong frame breaks everything downstream',
@@ -111,6 +116,7 @@ export const courses: Course[] = [
         'Collision-free paths and checking the cycle time you actually get',
       ],
       hu: [
+        'A RoboGuide telepítése és az első cella létrehozása',
         'Gyártócella felépítése: robot, szerszámozás, készülékek és anyagáramlás',
         'Csuklós, lineáris és köríves mozgás — és hogy mikor melyik a helyes',
         'Szerszám- és felhasználói koordinátarendszerek, és miért borul fel tőlük minden',
@@ -127,29 +133,31 @@ export const courses: Course[] = [
     status: 'coming-soon',
     icon: 'ri:device-line',
     title: {
-      en: 'PLC Programming with SCL in TIA Portal and Factory I/O',
-      hu: 'PLC-programozás SCL-ben TIA Portallal és Factory I/O-val',
+      en: 'PLC Programming Basics with TIA Portal and Factory I/O',
+      hu: 'PLC-programozás alapjai TIA Portallal és Factory I/O-val',
     },
     summary: {
-      en: 'Structured Control Language on a Siemens S7-1500, driven against a 3D plant in Factory I/O. Start in the simulator, wire the two together, then spend most of the course building and debugging real processes — no hardware required.',
-      hu: 'Structured Control Language (SCL) Siemens S7-1500-on, 3D-s üzemmodellel hajtva a Factory I/O-ban. A szimulátorban kezdünk, összekötjük a kettőt, majd a kurzus nagyobb részében valódi folyamatokat építünk és keresünk bennük hibát — hardver nélkül.',
+      en: 'Ladder logic on a Siemens S7-1500, driven against a 3D plant in Factory I/O. Start in the simulator, wire the two together, then spend most of the course building and debugging real processes — no hardware required.',
+      hu: 'Létradiagram Siemens S7-1500-on, 3D-s üzemmodellel hajtva a Factory I/O-ban. A szimulátorban kezdünk, összekötjük a kettőt, majd a kurzus nagyobb részében valódi folyamatokat építünk és keresünk bennük hibát — hardver nélkül.',
     },
     topics: {
       en: [
+        'Installing TIA Portal and Factory I/O, and getting both running',
         'Factory I/O basics: building a scene, and its sensors, actuators and tags',
         'TIA Portal basics: setting up a project, an S7-1500 CPU, and PLCSIM',
         'The scan cycle, and how it shapes the way you write logic',
         'Connecting TIA Portal to Factory I/O, and getting the I/O mapping right',
-        'SCL from the ground up: variables, conditions, loops, functions and function blocks',
+        'Ladder logic: contacts, coils, timers and counters',
         'Structuring a process as a state machine — start, stop, reset and emergency stop',
         'Plenty of practice: complete processes built and debugged end to end in simulation',
       ],
       hu: [
+        'A TIA Portal és a Factory I/O telepítése, és mindkettő beüzemelése',
         'Factory I/O alapok: jelenet felépítése, annak érzékelői, beavatkozói és jelei',
         'TIA Portal alapok: projekt létrehozása, S7-1500-as CPU és a PLCSIM',
         'A ciklusidő, és hogyan alakítja a logikaírás módját',
         'A TIA Portal és a Factory I/O összekötése, és a helyes I/O-hozzárendelés',
-        'SCL az alapoktól: változók, feltételek, ciklusok, függvények és funkcióblokkok',
+        'Létradiagram: érintkezők, tekercsek, időzítők és számlálók',
         'Folyamat felépítése állapotgépként — indítás, leállítás, alaphelyzet és vészleállítás',
         'Rengeteg gyakorlás: teljes folyamatok felépítése és hibakeresése végig szimulációban',
       ],

@@ -33,6 +33,9 @@ const t = useTranslations(lang);
   <section class="mx-auto max-w-[1200px] px-8 py-20">
     <h1 class="mb-4 text-center text-4xl font-semibold text-white">{t('coursesHeading')}</h1>
     <p class="mx-auto max-w-[720px] text-center text-muted">{t('coursesIntro')}</p>
+    <p class="mx-auto mt-3 max-w-[720px] text-center text-[0.9rem] text-muted/70">
+      {t('coursesTopicsNote')}
+    </p>
 
     <div class="mt-14 grid grid-cols-1 gap-8 tablet:grid-cols-2">
       {courses.map((course) => <CourseCard course={course} lang={lang} />)}
