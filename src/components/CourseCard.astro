@@ -40,7 +40,7 @@ const isComingSoon = course.status === 'coming-soon';
   <h2 class="mb-3 text-[1.3rem] leading-snug font-semibold text-white">{course.title[lang]}</h2>
   <p class="mb-6 text-muted">{course.summary[lang]}</p>
 
-  <ul class="mt-auto list-disc space-y-2 pl-5 text-[0.95rem] text-muted marker:text-accent">
+  <ul class="list-disc space-y-2 pl-5 text-[0.95rem] text-muted marker:text-accent">
     {course.topics[lang].map((topic) => <li>{topic}</li>)}
   </ul>
 
