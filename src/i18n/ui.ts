@@ -26,8 +26,8 @@ const strings = {
   },
   coursesHeading: { en: 'Courses', hu: 'Kurzusok' },
   coursesIntro: {
-    en: 'Courses I am putting together on the things I do every day, from absolute basics through to advanced — embedded software, hardware design, control systems, industrial robotics and PLC automation, taught the way I wish they had been taught to me.',
-    hu: 'Kurzusok, amelyeket azokról a területekről állítok össze, amelyekkel nap mint nap foglalkozom, a teljesen alapoktól a haladó szintig — beágyazott szoftverfejlesztés, hardvertervezés, szabályozástechnika, ipari robotika és PLC-automatizálás, úgy tanítva, ahogy annak idején én szerettem volna megtanulni.',
+    en: 'Courses I am putting together on the things I do every day, from absolute basics through to advanced — embedded software, hardware design, control systems, robotics and PLC automation, taught the way I wish they had been taught to me.',
+    hu: 'Kurzusok, amelyeket azokról a területekről állítok össze, amelyekkel nap mint nap foglalkozom, a teljesen alapoktól a haladó szintig — beágyazott szoftverfejlesztés, hardvertervezés, szabályozástechnika, robotika és PLC-automatizálás, úgy tanítva, ahogy annak idején én szerettem volna megtanulni.',
   },
   courseFormat: { en: 'Video course', hu: 'Videókurzus' },
   courseLength: { en: 'Around 15 weeks', hu: 'Körülbelül 15 hét' },
@@ -50,8 +50,8 @@ const strings = {
     hu: 'A kártyákon a fő témák szerepelnek — a kurzusok ennél több területet érintenek.',
   },
   coursesMetaDescription: {
-    en: 'Courses on embedded software with Arduino, hardware and PCB design, control systems and simulation in Python, industrial robotics in FANUC RoboGuide, and PLC programming with TIA Portal and Factory I/O.',
-    hu: 'Kurzusok beágyazott szoftverfejlesztésről Arduinóval, hardver- és NYÁK-tervezésről, szabályozástechnikáról és szimulációról Pythonban, ipari robotikáról FANUC RoboGuide-ban, valamint PLC-programozásról TIA Portallal és Factory I/O-val.',
+    en: 'Courses on embedded software with Arduino, hardware and PCB design, control systems and simulation in Python, autonomous robots with ROS 2 and Gazebo, industrial robotics in FANUC RoboGuide, and PLC programming with TIA Portal and Factory I/O.',
+    hu: 'Kurzusok beágyazott szoftverfejlesztésről Arduinóval, hardver- és NYÁK-tervezésről, szabályozástechnikáról és szimulációról Pythonban, autonóm robotokról ROS 2-vel és Gazebóval, ipari robotikáról FANUC RoboGuide-ban, valamint PLC-programozásról TIA Portallal és Factory I/O-val.',
   },
   comingSoon: { en: 'Coming soon', hu: 'Hamarosan' },
   courseNotifyIntro: {
