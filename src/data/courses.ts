@@ -96,8 +96,8 @@ export const courses: Course[] = [
       hu: 'Ipari robotika alapjai FANUC RoboGuide-ban',
     },
     summary: {
-      en: 'Programming six-axis industrial robots in simulation, long before they touch real hardware — motion, frames, I/O handshakes, and a full workcell you build yourself.',
-      hu: 'Hattengelyes ipari robotok programozása szimulációban, jóval azelőtt, hogy valódi hardverhez érnének — mozgás, koordinátarendszerek, I/O-kézfogások és egy teljes gyártócella, amelyet magad építesz fel.',
+      en: 'Programming six-axis industrial robots in simulation, long before they touch real hardware — motion, frames, I/O handshakes, camera vision, and a full workcell you build yourself.',
+      hu: 'Hattengelyes ipari robotok programozása szimulációban, jóval azelőtt, hogy valódi hardverhez érnének — mozgás, koordinátarendszerek, I/O-kézfogások, gépi látás és egy teljes gyártócella, amelyet magad építesz fel.',
     },
     topics: {
       en: [
@@ -106,6 +106,8 @@ export const courses: Course[] = [
         'Tool and user frames, and why a wrong frame breaks everything downstream',
         'Digital I/O and handshaking between the robot and a machine',
         'Pick and place, and palletizing with position registers',
+        'Camera basics: how machine vision works, and adding a simulated camera in RoboGuide',
+        'Putting vision to work: obstacle detection, and counting what the camera finds',
         'Collision-free paths and checking the cycle time you actually get',
       ],
       hu: [
@@ -114,6 +116,8 @@ export const courses: Course[] = [
         'Szerszám- és felhasználói koordinátarendszerek, és miért borul fel tőlük minden',
         'Digitális I/O és kézfogás a robot és a gép között',
         'Felvétel-lerakás és palettázás pozícióregiszterekkel',
+        'Kameraalapok: hogyan működik a gépi látás, és szimulált kamera beállítása RoboGuide-ban',
+        'A látás gyakorlatban: akadályérzékelés és a kamera által észlelt akadályok számlálása',
         'Ütközésmentes pályák és a ténylegesen elért ciklusidő ellenőrzése',
       ],
     },
