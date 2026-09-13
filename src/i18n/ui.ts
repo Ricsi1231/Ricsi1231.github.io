@@ -30,7 +30,6 @@ const strings = {
     hu: 'Kurzusok, amelyeket azokról a területekről állítok össze, amelyekkel nap mint nap foglalkozom, a teljesen alapoktól a haladó szintig — beágyazott szoftverfejlesztés, hardvertervezés, szabályozástechnika, robotika és PLC-automatizálás, úgy tanítva, ahogy annak idején én szerettem volna megtanulni.',
   },
   courseFormat: { en: 'Video course', hu: 'Videókurzus' },
-  courseLength: { en: 'Around 15 weeks', hu: 'Körülbelül 15 hét' },
   coursePerTopic: { en: 'About 2 hours per topic', hu: 'Témánként nagyjából 2 óra' },
   courseLanguages: { en: 'Hungarian and English', hu: 'Magyar és angol' },
 
