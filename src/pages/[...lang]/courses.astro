@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import CourseCard from '../../components/CourseCard.astro';
+import CourseFacts from '../../components/CourseFacts.astro';
 import { courses } from '../../data/courses';
 import { CONTACT_EMAIL } from '../../data/contact';
 import { LANGS, type Lang } from '../../i18n/types';
@@ -36,6 +37,8 @@ const t = useTranslations(lang);
     <p class="mx-auto mt-3 max-w-[720px] text-center text-[0.9rem] text-muted/70">
       {t('coursesTopicsNote')}
     </p>
+
+    <CourseFacts lang={lang} />
 
     <div class="mt-14 grid grid-cols-1 gap-8 tablet:grid-cols-2">
       {courses.map((course) => <CourseCard course={course} lang={lang} />)}

@@ -29,6 +29,12 @@ const strings = {
     en: 'Courses I am putting together on the things I do every day — embedded software, hardware design, industrial robotics and PLC automation, taught the way I wish they had been taught to me.',
     hu: 'Kurzusok, amelyeket azokról a területekről állítok össze, amelyekkel nap mint nap foglalkozom — beágyazott szoftverfejlesztés, hardvertervezés, ipari robotika és PLC-automatizálás, úgy tanítva, ahogy annak idején én szerettem volna megtanulni.',
   },
+  courseFormat: { en: 'Video course', hu: 'Videókurzus' },
+  courseLength: { en: 'Around 15 weeks', hu: 'Körülbelül 15 hét' },
+  coursePerTopic: { en: 'About 2 hours per topic', hu: 'Témánként nagyjából 2 óra' },
+  courseLevel: { en: 'No prior knowledge needed', hu: 'Előzetes tudás nem szükséges' },
+  courseLanguages: { en: 'Hungarian and English', hu: 'Magyar és angol' },
+
   coursesTopicsNote: {
     en: 'Each card lists the main topics — the courses cover more ground than fits on one.',
     hu: 'A kártyákon a fő témák szerepelnek — a kurzusok ennél több területet érintenek.',
