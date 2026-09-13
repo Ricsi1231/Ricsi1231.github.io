@@ -13,6 +13,7 @@ const strings = {
   navServices: { en: 'Services', hu: 'Szolgáltatások' },
   navArticles: { en: 'Articles', hu: 'Cikkek' },
   navProjects: { en: 'Projects', hu: 'Projektek' },
+  navCourses: { en: 'Courses', hu: 'Kurzusok' },
   navGithub: { en: 'GitHub', hu: 'GitHub' },
 
   metaDescription: {
@@ -23,6 +24,22 @@ const strings = {
     en: 'Hardware, robotics, industrial automation and control projects — custom PCBs, embedded firmware, PLC systems and ROS 2 navigation.',
     hu: 'Hardveres, robotikai, ipari automatizálási és szabályozási projektek — egyedi NYÁK-ok, beágyazott firmware, PLC-rendszerek és ROS 2 navigáció.',
   },
+  coursesHeading: { en: 'Courses', hu: 'Kurzusok' },
+  coursesIntro: {
+    en: 'Courses I am putting together on the things I do every day — embedded firmware and hardware design, taught the way I wish they had been taught to me.',
+    hu: 'Kurzusok, amelyeket azokról a területekről állítok össze, amelyekkel nap mint nap foglalkozom — beágyazott firmware és hardvertervezés, úgy tanítva, ahogy annak idején én szerettem volna megtanulni.',
+  },
+  coursesMetaDescription: {
+    en: 'Courses on embedded systems software development with Arduino and on hardware design basics — schematic capture, PCB layout and manufacturing files.',
+    hu: 'Kurzusok a beágyazott rendszerek Arduino-alapú szoftverfejlesztéséről és a hardvertervezés alapjairól — kapcsolási rajz, NYÁK-tervezés és gyártási fájlok.',
+  },
+  comingSoon: { en: 'Coming soon', hu: 'Hamarosan' },
+  courseNotifyIntro: {
+    en: 'Want to hear when one of these opens?',
+    hu: 'Szeretnél értesítést kapni, amikor elindul valamelyik?',
+  },
+  courseNotifyCta: { en: 'Email me', hu: 'Írj egy e-mailt' },
+
   notFoundTitle: { en: 'Page not found', hu: 'Az oldal nem található' },
   notFoundBody: {
     en: 'That page does not exist. It may have moved, or the link may be wrong.',

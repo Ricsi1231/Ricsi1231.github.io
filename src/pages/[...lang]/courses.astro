@@ -1,0 +1,56 @@
+---
+import { Icon } from 'astro-icon/components';
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import CourseCard from '../../components/CourseCard.astro';
+import { courses } from '../../data/courses';
+import { CONTACT_EMAIL } from '../../data/contact';
+import { LANGS, type Lang } from '../../i18n/types';
+import { useTranslations } from '../../i18n/ui';
+import { langParam } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({
+    params: { lang: langParam(lang) },
+    props: { lang },
+  }));
+}
+
+type Props = { lang: Lang };
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<Layout
+  title={`${t('coursesHeading')} — ${t('siteName')}`}
+  lang={lang}
+  description={t('coursesMetaDescription')}
+>
+  <Nav lang={lang} />
+
+  <section class="mx-auto max-w-[1200px] px-8 py-20">
+    <h1 class="mb-4 text-center text-4xl font-semibold text-white">{t('coursesHeading')}</h1>
+    <p class="mx-auto max-w-[720px] text-center text-muted">{t('coursesIntro')}</p>
+
+    <div class="mt-14 grid grid-cols-1 gap-8 tablet:grid-cols-2">
+      {courses.map((course) => <CourseCard course={course} lang={lang} />)}
+    </div>
+
+    <!-- Every course is still being written, so the page's one action is to ask
+         to be told when that changes. -->
+    <div class="mt-14 text-center">
+      <p class="mb-4 text-muted">{t('courseNotifyIntro')}</p>
+      <a
+        href={`mailto:${CONTACT_EMAIL}`}
+        class="inline-flex items-center gap-2 rounded-[8px] border-2 border-transparent bg-card px-4 py-2 font-medium text-white transition-all duration-300 hover:border-white hover:bg-card-hover"
+      >
+        <Icon name="ri:mail-send-line" />
+        {t('courseNotifyCta')}
+      </a>
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+</Layout>
