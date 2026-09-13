@@ -117,7 +117,7 @@ export const courses: Course[] = [
     icon: 'ri:line-chart-line',
     title: {
       en: 'Control Systems and Simulation Basics in Python',
-      hu: 'Szabályozástechnika és szimuláció alapjai Pythonban',
+      hu: 'Irányítástechnika és szimuláció alapjai Pythonban',
     },
     summary: {
       en: 'Model a real system, then control it — entirely in Python. Build the plant, close the loop, write a PID from scratch, and pick up the theory along the way — stability, frequency response, filtering — that explains why it behaves the way it does.',
@@ -405,7 +405,7 @@ export const courses: Course[] = [
     icon: 'ri:function-line',
     title: {
       en: 'Advanced Control Systems in Python: Classical, State Space and Fuzzy',
-      hu: 'Haladó szabályozástechnika Pythonban: klasszikus, állapottér és fuzzy',
+      hu: 'Haladó irányítástechnika Pythonban: klasszikus, állapottér és fuzzy',
     },
     summary: {
       en: 'Beyond a single PID loop — first the classical analysis the basics course deliberately skipped, then state space with observers and optimal control, and finally fuzzy controllers for the cases where the rules are easier to write than the maths.',

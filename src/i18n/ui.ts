@@ -27,7 +27,7 @@ const strings = {
   coursesHeading: { en: 'Courses', hu: 'Kurzusok' },
   coursesIntro: {
     en: 'Courses I am putting together on the things I do every day, from absolute basics through to advanced — embedded software, hardware design, control systems, robotics and PLC automation, taught the way I wish they had been taught to me.',
-    hu: 'Kurzusok, amelyeket azokról a területekről állítok össze, amelyekkel nap mint nap foglalkozom, a teljesen alapoktól a haladó szintig — beágyazott szoftverfejlesztés, hardvertervezés, szabályozástechnika, robotika és PLC-automatizálás, úgy tanítva, ahogy annak idején én szerettem volna megtanulni.',
+    hu: 'Kurzusok, amelyeket azokról a területekről állítok össze, amelyekkel nap mint nap foglalkozom, a teljesen alapoktól a haladó szintig — beágyazott szoftverfejlesztés, hardvertervezés, irányítástechnika, robotika és PLC-automatizálás, úgy tanítva, ahogy annak idején én szerettem volna megtanulni.',
   },
   courseFormat: { en: 'Video course', hu: 'Videókurzus' },
   coursePerTopic: { en: 'About 2 hours per topic', hu: 'Témánként nagyjából 2 óra' },
@@ -50,7 +50,7 @@ const strings = {
   },
   coursesMetaDescription: {
     en: 'Courses on embedded software with Arduino, hardware and PCB design, control systems and simulation in Python, autonomous robots with ROS 2 and Gazebo, industrial robotics in FANUC RoboGuide, and PLC programming with TIA Portal and Factory I/O.',
-    hu: 'Kurzusok beágyazott szoftverfejlesztésről Arduinóval, hardver- és NYÁK-tervezésről, szabályozástechnikáról és szimulációról Pythonban, autonóm robotokról ROS 2-vel és Gazebóval, ipari robotikáról FANUC RoboGuide-ban, valamint PLC-programozásról TIA Portallal és Factory I/O-val.',
+    hu: 'Kurzusok beágyazott szoftverfejlesztésről Arduinóval, hardver- és NYÁK-tervezésről, irányítástechnikáról és szimulációról Pythonban, autonóm robotokról ROS 2-vel és Gazebóval, ipari robotikáról FANUC RoboGuide-ban, valamint PLC-programozásról TIA Portallal és Factory I/O-val.',
   },
   comingSoon: { en: 'Coming soon', hu: 'Hamarosan' },
   courseNotifyIntro: {
