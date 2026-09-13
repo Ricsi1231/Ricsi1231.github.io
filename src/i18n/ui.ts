@@ -26,14 +26,24 @@ const strings = {
   },
   coursesHeading: { en: 'Courses', hu: 'Kurzusok' },
   coursesIntro: {
-    en: 'Courses I am putting together on the things I do every day — embedded software, hardware design, control systems, industrial robotics and PLC automation, taught the way I wish they had been taught to me.',
-    hu: 'Kurzusok, amelyeket azokról a területekről állítok össze, amelyekkel nap mint nap foglalkozom — beágyazott szoftverfejlesztés, hardvertervezés, szabályozástechnika, ipari robotika és PLC-automatizálás, úgy tanítva, ahogy annak idején én szerettem volna megtanulni.',
+    en: 'Courses I am putting together on the things I do every day, from absolute basics through to advanced — embedded software, hardware design, control systems, industrial robotics and PLC automation, taught the way I wish they had been taught to me.',
+    hu: 'Kurzusok, amelyeket azokról a területekről állítok össze, amelyekkel nap mint nap foglalkozom, a teljesen alapoktól a haladó szintig — beágyazott szoftverfejlesztés, hardvertervezés, szabályozástechnika, ipari robotika és PLC-automatizálás, úgy tanítva, ahogy annak idején én szerettem volna megtanulni.',
   },
   courseFormat: { en: 'Video course', hu: 'Videókurzus' },
   courseLength: { en: 'Around 15 weeks', hu: 'Körülbelül 15 hét' },
   coursePerTopic: { en: 'About 2 hours per topic', hu: 'Témánként nagyjából 2 óra' },
-  courseLevel: { en: 'No prior knowledge needed', hu: 'Előzetes tudás nem szükséges' },
   courseLanguages: { en: 'Hungarian and English', hu: 'Magyar és angol' },
+
+  basicsHeading: { en: 'Basics', hu: 'Alapok' },
+  basicsNote: {
+    en: 'No prior knowledge needed — each one starts from installing the software.',
+    hu: 'Előzetes tudás nem szükséges — mindegyik a szoftver telepítésével kezdődik.',
+  },
+  advancedHeading: { en: 'Advanced', hu: 'Haladó' },
+  advancedNote: {
+    en: 'Each one continues where the matching basics course ends.',
+    hu: 'Mindegyik ott folytatja, ahol a hozzá tartozó alapkurzus véget ér.',
+  },
 
   coursesTopicsNote: {
     en: 'Each card lists the main topics — the courses cover more ground than fits on one.',

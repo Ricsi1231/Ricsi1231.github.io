@@ -22,6 +22,13 @@ type Props = { lang: Lang };
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+
+// Basics first, then advanced. Each group states its own prerequisite, which a
+// single page-wide line could not do once the two levels sat side by side.
+const SECTIONS = [
+  { level: 'basics', heading: 'basicsHeading', note: 'basicsNote' },
+  { level: 'advanced', heading: 'advancedHeading', note: 'advancedNote' },
+] as const;
 ---
 
 <Layout
@@ -40,9 +47,23 @@ const t = useTranslations(lang);
 
     <CourseFacts lang={lang} />
 
-    <div class="mt-14 grid grid-cols-1 gap-8 tablet:grid-cols-2">
-      {courses.map((course) => <CourseCard course={course} lang={lang} />)}
-    </div>
+    {
+      SECTIONS.map((section) => (
+        <div class="mt-16">
+          <h2 class="text-center text-2xl font-semibold text-white">{t(section.heading)}</h2>
+          <p class="mx-auto mt-2 max-w-[640px] text-center text-[0.9rem] text-muted">
+            {t(section.note)}
+          </p>
+          <div class="mt-10 grid grid-cols-1 gap-8 tablet:grid-cols-2">
+            {courses
+              .filter((course) => course.level === section.level)
+              .map((course) => (
+                <CourseCard course={course} lang={lang} />
+              ))}
+          </div>
+        </div>
+      ))
+    }
 
     <!-- Every course is still being written, so the page's one action is to ask
          to be told when that changes. -->

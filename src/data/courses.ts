@@ -7,10 +7,18 @@ import type { Localized } from '../i18n/types';
  */
 export type CourseStatus = 'coming-soon' | 'available';
 
+/**
+ * Basics courses assume nothing and start from installation. Advanced ones
+ * continue where the matching basics course ends, so the page groups them and
+ * states the prerequisite once per group rather than on every card.
+ */
+export type CourseLevel = 'basics' | 'advanced';
+
 export interface Course {
   /** Stable identifier, also used as the React-style key when rendering. */
   slug: string;
   status: CourseStatus;
+  level: CourseLevel;
   icon: string; // Iconify name from the RemixIcon (ri) set
   title: Localized<string>;
   summary: Localized<string>;
@@ -24,6 +32,7 @@ export const courses: Course[] = [
   {
     slug: 'embedded-arduino-basics',
     status: 'coming-soon',
+    level: 'basics',
     icon: 'ri:terminal-box-line',
     title: {
       en: 'Embedded Systems Software Development Basics on the Arduino Platform',
@@ -59,6 +68,7 @@ export const courses: Course[] = [
   {
     slug: 'hardware-design-basics',
     status: 'coming-soon',
+    level: 'basics',
     icon: 'ri:draft-line',
     title: {
       en: 'Hardware Design Basics',
@@ -94,6 +104,7 @@ export const courses: Course[] = [
   {
     slug: 'control-systems-simulation-python',
     status: 'coming-soon',
+    level: 'basics',
     icon: 'ri:line-chart-line',
     title: {
       en: 'Control Systems and Simulation Basics in Python',
@@ -129,6 +140,7 @@ export const courses: Course[] = [
   {
     slug: 'fanuc-roboguide-basics',
     status: 'coming-soon',
+    level: 'basics',
     icon: 'ri:robot-2-line',
     title: {
       en: 'Industrial Robotics Basics in FANUC RoboGuide',
@@ -166,6 +178,7 @@ export const courses: Course[] = [
   {
     slug: 'plc-tia-portal-factory-io',
     status: 'coming-soon',
+    level: 'basics',
     icon: 'ri:device-line',
     title: {
       en: 'PLC Programming Basics with TIA Portal and Factory I/O',
@@ -195,6 +208,114 @@ export const courses: Course[] = [
         'Létradiagram: érintkezők, tekercsek, időzítők és számlálók',
         'Folyamat felépítése állapotgépként — indítás, leállítás, alaphelyzet és vészleállítás',
         'Rengeteg gyakorlás: teljes folyamatok felépítése és hibakeresése végig szimulációban',
+      ],
+    },
+  },
+  {
+    slug: 'embedded-advanced-esp-idf',
+    status: 'coming-soon',
+    level: 'advanced',
+    icon: 'ri:cpu-line',
+    title: {
+      en: 'Advanced Embedded Software Development with ESP-IDF and FreeRTOS',
+      hu: 'Haladó beágyazott szoftverfejlesztés ESP-IDF-fel és FreeRTOS-szal',
+    },
+    summary: {
+      en: 'Off Arduino and onto a real toolchain — modern C++ on ESP-IDF, FreeRTOS tasks, wired and wireless protocols, and the architecture and version control that keep a growing codebase under control.',
+      hu: 'Túl az Arduinón, valódi eszközláncon — modern C++ ESP-IDF-en, FreeRTOS taszkok, vezetékes és vezeték nélküli protokollok, valamint az az architektúra és verziókövetés, ami kordában tartja a növekvő kódbázist.',
+    },
+    topics: {
+      en: [
+        'Setting up ESP-IDF, and what a real toolchain gives you over the Arduino IDE',
+        'Modern C++ on a microcontroller: classes, RAII, and what to avoid',
+        'Architecture: interfaces, dependency injection, and code you can actually test',
+        'FreeRTOS: tasks, priorities, queues and semaphores',
+        'Sharing data safely between tasks, and the bugs that appear when you do not',
+        'Wired protocols: UART, I²C, SPI and CAN',
+        'Networking: WiFi, Ethernet, TCP/IP and MQTT',
+        'Git in practice: branches, history, and working with other people',
+      ],
+      hu: [
+        'Az ESP-IDF beállítása, és hogy mit ad egy valódi eszközlánc az Arduino IDE-hez képest',
+        'Modern C++ mikrovezérlőn: osztályok, RAII, és amit kerülni érdemes',
+        'Architektúra: interfészek, függőséginjektálás, és valóban tesztelhető kód',
+        'FreeRTOS: taszkok, prioritások, üzenetsorok és szemaforok',
+        'Adatok biztonságos megosztása taszkok között, és a hibák, amelyek enélkül jelentkeznek',
+        'Vezetékes protokollok: UART, I²C, SPI és CAN',
+        'Hálózatkezelés: WiFi, Ethernet, TCP/IP és MQTT',
+        'Git a gyakorlatban: branchek, előzmények, és közös munka másokkal',
+      ],
+    },
+  },
+  {
+    slug: 'hardware-advanced-mixed-signal',
+    status: 'coming-soon',
+    level: 'advanced',
+    icon: 'ri:stack-line',
+    title: {
+      en: 'Advanced Hardware Design: Mixed-Signal Boards',
+      hu: 'Haladó hardvertervezés: vegyes jelű panelek',
+    },
+    summary: {
+      en: 'A board where analog and digital have to share the same copper — power integrity, grounding, analog front-ends, and the layout decisions that determine whether the quiet signals stay quiet.',
+      hu: 'Olyan panel, ahol az analóg és a digitális ugyanazon a rézen osztozik — tápintegritás, földelés, analóg bemeneti fokozatok, és azok a huzalozási döntések, amelyeken múlik, hogy a halk jelek halkak maradnak-e.',
+    },
+    topics: {
+      en: [
+        'Multilayer stackups, and choosing one for a mixed-signal board',
+        'Power integrity: regulators, decoupling, and where the return current flows',
+        'Grounding: planes, splits, and the myths worth unlearning',
+        'Analog front-ends: op-amps, filters, and driving an ADC properly',
+        'Noise, crosstalk and EMC — finding them before the lab does',
+        'High-speed routing: impedance, length matching and differential pairs',
+        'Design for manufacture: HDI, fine pitch, and what your fab charges extra for',
+        'Bring-up: testing a board you have never powered before',
+      ],
+      hu: [
+        'Többrétegű rétegfelépítések, és a megfelelő kiválasztása vegyes jelű panelhez',
+        'Tápintegritás: stabilizátorok, hidegítés, és hogy merre folyik a visszatérő áram',
+        'Földelés: síkok, felosztások, és a tévhitek, amelyeket el kell felejteni',
+        'Analóg bemeneti fokozatok: műveleti erősítők, szűrők, és az ADC helyes meghajtása',
+        'Zaj, áthallás és EMC — megtalálni őket, mielőtt a labor teszi meg',
+        'Nagy sebességű huzalozás: impedancia, hosszillesztés és differenciális párok',
+        'Gyárthatóságra tervezés: HDI, finom raszter, és amiért a gyártó felárat kér',
+        'Beüzemelés: olyan panel tesztelése, amelyet még sosem kapcsoltál be',
+      ],
+    },
+  },
+  {
+    slug: 'control-advanced-state-space-fuzzy',
+    status: 'coming-soon',
+    level: 'advanced',
+    icon: 'ri:function-line',
+    title: {
+      en: 'Advanced Control Systems in Python: State Space and Fuzzy',
+      hu: 'Haladó szabályozástechnika Pythonban: állapottér és fuzzy',
+    },
+    summary: {
+      en: 'Beyond a single PID loop — describing a system in state space, designing controllers and observers for it, and building fuzzy controllers for the cases where the rules are easier to write than the maths.',
+      hu: 'Túl az egyetlen PID-hurkon — rendszer leírása állapottérben, szabályozók és megfigyelők tervezése hozzá, valamint fuzzy szabályozók építése azokra az esetekre, ahol a szabályokat könnyebb leírni, mint a matematikát.',
+    },
+    topics: {
+      en: [
+        'State space: describing a system with matrices instead of one transfer function',
+        'Poles, stability and controllability — what the model tells you before you tune',
+        'State feedback and pole placement',
+        'Observers: estimating the states you cannot measure',
+        'LQR: letting a cost function do the tuning for you',
+        'Fuzzy control: membership functions, rule bases and defuzzification',
+        'Building a Mamdani controller, and tuning it by rewriting rules',
+        'Comparing PID, state feedback and fuzzy honestly on the same plant',
+      ],
+      hu: [
+        'Állapottér: rendszer leírása mátrixokkal egyetlen átviteli függvény helyett',
+        'Pólusok, stabilitás és irányíthatóság — mit árul el a modell a hangolás előtt',
+        'Állapot-visszacsatolás és pólusáthelyezés',
+        'Megfigyelők: a nem mérhető állapotok becslése',
+        'LQR: bízzuk a hangolást egy költségfüggvényre',
+        'Fuzzy szabályozás: tagsági függvények, szabálybázis és defuzzifikáció',
+        'Mamdani-szabályozó építése, és hangolása a szabályok átírásával',
+        'PID, állapot-visszacsatolás és fuzzy őszinte összehasonlítása ugyanazon a szakaszon',
       ],
     },
   },
