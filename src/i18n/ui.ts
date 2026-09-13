@@ -26,12 +26,12 @@ const strings = {
   },
   coursesHeading: { en: 'Courses', hu: 'Kurzusok' },
   coursesIntro: {
-    en: 'Courses I am putting together on the things I do every day — embedded firmware and hardware design, taught the way I wish they had been taught to me.',
-    hu: 'Kurzusok, amelyeket azokról a területekről állítok össze, amelyekkel nap mint nap foglalkozom — beágyazott firmware és hardvertervezés, úgy tanítva, ahogy annak idején én szerettem volna megtanulni.',
+    en: 'Courses I am putting together on the things I do every day — embedded firmware, hardware design, industrial robotics and PLC automation, taught the way I wish they had been taught to me.',
+    hu: 'Kurzusok, amelyeket azokról a területekről állítok össze, amelyekkel nap mint nap foglalkozom — beágyazott firmware, hardvertervezés, ipari robotika és PLC-automatizálás, úgy tanítva, ahogy annak idején én szerettem volna megtanulni.',
   },
   coursesMetaDescription: {
-    en: 'Courses on embedded systems software development with Arduino and on hardware design basics — schematic capture, PCB layout and manufacturing files.',
-    hu: 'Kurzusok a beágyazott rendszerek Arduino-alapú szoftverfejlesztéséről és a hardvertervezés alapjairól — kapcsolási rajz, NYÁK-tervezés és gyártási fájlok.',
+    en: 'Courses on embedded firmware with Arduino, hardware and PCB design, industrial robotics in FANUC RoboGuide, and PLC programming with TIA Portal and Factory I/O.',
+    hu: 'Kurzusok beágyazott firmware-ről Arduinóval, hardver- és NYÁK-tervezésről, ipari robotikáról FANUC RoboGuide-ban, valamint PLC-programozásról TIA Portallal és Factory I/O-val.',
   },
   comingSoon: { en: 'Coming soon', hu: 'Hamarosan' },
   courseNotifyIntro: {

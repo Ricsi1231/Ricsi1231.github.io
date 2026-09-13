@@ -83,4 +83,66 @@ export const courses: Course[] = [
       ],
     },
   },
+  {
+    slug: 'fanuc-roboguide-basics',
+    status: 'coming-soon',
+    icon: 'ri:robot-2-line',
+    title: {
+      en: 'Industrial Robotics Basics in FANUC RoboGuide',
+      hu: 'Ipari robotika alapjai FANUC RoboGuide-ban',
+    },
+    summary: {
+      en: 'Programming six-axis industrial robots in simulation, long before they touch real hardware — motion, frames, I/O handshakes, and a full workcell you build yourself.',
+      hu: 'Hattengelyes ipari robotok programozása szimulációban, jóval azelőtt, hogy valódi hardverhez érnének — mozgás, koordinátarendszerek, I/O-kézfogások és egy teljes gyártócella, amelyet magad építesz fel.',
+    },
+    topics: {
+      en: [
+        'Building a workcell: robot, tooling, fixtures and part flow',
+        'Joint, linear and circular motion — and when each is the right one',
+        'Tool and user frames, and why a wrong frame breaks everything downstream',
+        'Digital I/O and handshaking between the robot and a machine',
+        'Pick and place, and palletizing with position registers',
+        'Collision-free paths and checking the cycle time you actually get',
+      ],
+      hu: [
+        'Gyártócella felépítése: robot, szerszámozás, készülékek és anyagáramlás',
+        'Csuklós, lineáris és köríves mozgás — és hogy mikor melyik a helyes',
+        'Szerszám- és felhasználói koordinátarendszerek, és miért borul fel tőlük minden',
+        'Digitális I/O és kézfogás a robot és a gép között',
+        'Felvétel-lerakás és palettázás pozícióregiszterekkel',
+        'Ütközésmentes pályák és a ténylegesen elért ciklusidő ellenőrzése',
+      ],
+    },
+  },
+  {
+    slug: 'plc-tia-portal-factory-io',
+    status: 'coming-soon',
+    icon: 'ri:device-line',
+    title: {
+      en: 'PLC Programming Basics with TIA Portal and Factory I/O',
+      hu: 'PLC-programozás alapjai TIA Portallal és Factory I/O-val',
+    },
+    summary: {
+      en: 'Ladder logic on a Siemens S7-1200, driven against a 3D plant in Factory I/O — so you can build, run and break a real process without owning the hardware.',
+      hu: 'Létradiagram Siemens S7-1200-on, 3D-s üzemmodellel hajtva a Factory I/O-ban — így úgy építhetsz, futtathatsz és törhetsz el egy valódi folyamatot, hogy nincs meg hozzá a hardver.',
+    },
+    topics: {
+      en: [
+        'The PLC scan cycle, and how it changes the way you write logic',
+        'Digital and analog I/O, and addressing that stays readable',
+        'Ladder logic: contacts, coils, timers and counters',
+        'Structuring a process as a state machine with start, stop and reset',
+        'Emergency stop, and the difference between stopping and being safe',
+        'Testing against a Factory I/O plant before touching real hardware',
+      ],
+      hu: [
+        'A PLC ciklusideje, és hogyan változtatja meg a logikaírás módját',
+        'Digitális és analóg I/O, és olvasható maradó címzés',
+        'Létradiagram: érintkezők, tekercsek, időzítők és számlálók',
+        'Folyamat felépítése állapotgépként indítással, leállítással és alaphelyzetbe állítással',
+        'Vészleállítás, és a különbség a megállítás és a biztonságos állapot között',
+        'Tesztelés Factory I/O üzemmodellen, mielőtt valódi hardverhez nyúlnál',
+      ],
+    },
+  },
 ];
