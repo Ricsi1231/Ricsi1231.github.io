@@ -1,0 +1,68 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Course } from '../data/courses';
+import type { Lang } from '../i18n/types';
+import { useTranslations } from '../i18n/ui';
+
+interface Props {
+  course: Course;
+  lang: Lang;
+}
+
+const { course, lang } = Astro.props;
+const t = useTranslations(lang);
+
+// A course without a live enrolment link is not a link - it is a card that
+// tells you what is coming, so it renders as an <article> rather than an <a>.
+const isComingSoon = course.status === 'coming-soon';
+---
+
+<article
+  class="card flex flex-col rounded-[15px] border-2 border-transparent bg-card p-6 transition-all duration-300 hover:border-white hover:bg-card-hover"
+>
+  <div class="mb-5 flex items-start justify-between gap-4">
+    <span
+      class="inline-block rounded-[5px] bg-accent-dark px-[9px] py-[2px] text-[1.75rem] text-white"
+    >
+      <Icon name={course.icon} />
+    </span>
+
+    {
+      isComingSoon && (
+        <span class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-[0.8rem] font-semibold text-white">
+          <Icon name="ri:time-line" />
+          {t('comingSoon')}
+        </span>
+      )
+    }
+  </div>
+
+  <h3 class="mb-3 text-[1.3rem] leading-snug font-semibold text-white">{course.title[lang]}</h3>
+  <p class="mb-4 text-muted">{course.summary[lang]}</p>
+
+  {
+    course.prerequisite && (
+      <p class="mb-5 flex items-start gap-2 text-[0.85rem] text-muted/80">
+        <Icon name="ri:information-line" class="mt-[0.2rem] shrink-0 text-accent" />
+        <span>{course.prerequisite[lang]}</span>
+      </p>
+    )
+  }
+
+  <ul class="mt-2 list-disc space-y-2 pl-5 text-[0.95rem] text-muted marker:text-accent">
+    {course.topics[lang].map((topic) => <li>{topic}</li>)}
+  </ul>
+
+  {
+    course.url && (
+      <a
+        href={course.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-6 inline-flex items-center justify-center gap-2 rounded-[8px] bg-accent px-4 py-2 font-medium text-white transition-colors hover:bg-accent-dark"
+      >
+        {course.title[lang]}
+      </a>
+    )
+  }
+</article>

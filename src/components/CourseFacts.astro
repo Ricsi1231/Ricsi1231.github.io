@@ -1,0 +1,33 @@
+---
+// The four courses share their format, length, level and languages, so these
+// are stated once for the page rather than repeated on every card.
+import { Icon } from 'astro-icon/components';
+import type { Lang } from '../i18n/types';
+import { useTranslations, type UiKey } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const facts: { icon: string; key: UiKey }[] = [
+  { icon: 'ri:video-line', key: 'courseFormat' },
+  { icon: 'ri:time-line', key: 'coursePerTopic' },
+  { icon: 'ri:translate-2', key: 'courseLanguages' },
+];
+---
+
+<ul
+  class="mx-auto mt-8 flex max-w-[900px] list-none flex-wrap justify-center gap-x-3 gap-y-3"
+>
+  {
+    facts.map((fact) => (
+      <li class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-card px-4 py-2 text-[0.9rem] text-white">
+        <Icon name={fact.icon} class="shrink-0 text-accent" />
+        {t(fact.key)}
+      </li>
+    ))
+  }
+</ul>
