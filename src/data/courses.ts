@@ -111,8 +111,8 @@ export const courses: Course[] = [
       hu: 'Szabályozástechnika és szimuláció alapjai Pythonban',
     },
     summary: {
-      en: 'Model a real system, then control it — entirely in Python. Build the plant, close the loop, write a PID from scratch, and measure honestly how well it really does.',
-      hu: 'Modellezz egy valódi rendszert, majd szabályozd — teljesen Pythonban. Felépítjük a szakaszt, bezárjuk a hurkot, megírjuk a PID-et a nulláról, és őszintén megmérjük, mennyire jól működik.',
+      en: 'Model a real system, then control it — entirely in Python. Build the plant, close the loop, write a PID from scratch, and pick up the theory along the way — stability, frequency response, filtering — that explains why it behaves the way it does.',
+      hu: 'Modellezz egy valódi rendszert, majd szabályozd — teljesen Pythonban. Felépítjük a szakaszt, bezárjuk a hurkot, megírjuk a PID-et a nulláról, és közben megtanuljuk azt az elméletet — stabilitás, frekvenciamenet, szűrés —, amely megmagyarázza, miért viselkedik úgy, ahogy.',
     },
     topics: {
       en: [
@@ -121,9 +121,11 @@ export const courses: Course[] = [
         'Simulating a plant: time steps, integration, and why the step size matters',
         'Open loop versus closed loop, and what feedback actually buys you',
         'Poles, damping and stability — why a system oscillates, and what tuning actually changes',
+        'The frequency domain: Bode plots, gain and phase margin, and what they predict',
         'PID from scratch: proportional, integral and derivative — and anti-windup',
         'Tuning, and reading a step response: rise time, overshoot and settling',
         'Making a simulation honest: sensor noise, quantisation and actuator limits',
+        'Filters: low-pass, high-pass, and taming a noisy measurement',
         'Comparing P, PI and PID on the same plant, and plotting results that mean something',
       ],
       hu: [
@@ -132,9 +134,11 @@ export const courses: Course[] = [
         'Szakasz szimulálása: időlépések, integrálás, és miért számít a lépésköz',
         'Nyílt és zárt hurok, és hogy valójában mit ad a visszacsatolás',
         'Pólusok, csillapítás és stabilitás — miért leng be egy rendszer, és mit változtat valójában a hangolás',
+        'A frekvenciatartomány: Bode-diagramok, erősítési és fázistartalék, és mit jósolnak meg',
         'PID a nulláról: arányos, integráló és differenciáló tag — és az anti-windup',
         'Hangolás és az ugrásválasz olvasása: felfutási idő, túllövés és beállási idő',
         'A szimuláció őszintévé tétele: szenzorzaj, kvantálás és beavatkozói korlátok',
+        'Szűrők: aluláteresztő, felüláteresztő, és a zajos mérés megszelídítése',
         'P, PI és PID összehasonlítása ugyanazon a szakaszon, és értelmes ábrák készítése',
       ],
     },
