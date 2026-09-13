@@ -92,6 +92,41 @@ export const courses: Course[] = [
     },
   },
   {
+    slug: 'control-systems-simulation-python',
+    status: 'coming-soon',
+    icon: 'ri:line-chart-line',
+    title: {
+      en: 'Control Systems and Simulation Basics in Python',
+      hu: 'Szabályozástechnika és szimuláció alapjai Pythonban',
+    },
+    summary: {
+      en: 'Model a real system, then control it — entirely in Python. Build the plant, write a PID from scratch, add a fuzzy controller, and measure honestly which one actually does better.',
+      hu: 'Modellezz egy valódi rendszert, majd szabályozd — teljesen Pythonban. Felépítjük a szakaszt, megírjuk a PID-et a nulláról, hozzáadunk egy fuzzy szabályozót, és őszintén megmérjük, melyik teljesít jobban.',
+    },
+    topics: {
+      en: [
+        'Installing Python and the scientific stack, and running your first simulation',
+        'What a dynamic system is, and writing one down as equations',
+        'Simulating a plant: time steps, integration, and why the step size matters',
+        'PID from scratch: proportional, integral and derivative — and anti-windup',
+        'Tuning, and reading a step response: rise time, overshoot and settling',
+        'Fuzzy control: membership functions, rules, and where it beats a PID',
+        'Making a simulation honest: sensor noise, quantisation and actuator limits',
+        'Comparing controllers on the same plant, and plotting results that mean something',
+      ],
+      hu: [
+        'A Python és a tudományos csomagok telepítése, és az első szimuláció futtatása',
+        'Mi az a dinamikus rendszer, és hogyan írjuk fel egyenletekkel',
+        'Szakasz szimulálása: időlépések, integrálás, és miért számít a lépésköz',
+        'PID a nulláról: arányos, integráló és differenciáló tag — és az anti-windup',
+        'Hangolás és az ugrásválasz olvasása: felfutási idő, túllövés és beállási idő',
+        'Fuzzy szabályozás: tagsági függvények, szabályok, és hol jobb a PID-nél',
+        'A szimuláció őszintévé tétele: szenzorzaj, kvantálás és beavatkozói korlátok',
+        'Szabályozók összehasonlítása ugyanazon a szakaszon, és értelmes ábrák készítése',
+      ],
+    },
+  },
+  {
     slug: 'fanuc-roboguide-basics',
     status: 'coming-soon',
     icon: 'ri:robot-2-line',
