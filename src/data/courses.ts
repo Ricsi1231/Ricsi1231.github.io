@@ -120,6 +120,7 @@ export const courses: Course[] = [
         'What a dynamic system is, and writing one down as equations',
         'Simulating a plant: time steps, integration, and why the step size matters',
         'Open loop versus closed loop, and what feedback actually buys you',
+        'Poles, damping and stability — why a system oscillates, and what tuning actually changes',
         'PID from scratch: proportional, integral and derivative — and anti-windup',
         'Tuning, and reading a step response: rise time, overshoot and settling',
         'Making a simulation honest: sensor noise, quantisation and actuator limits',
@@ -130,6 +131,7 @@ export const courses: Course[] = [
         'Mi az a dinamikus rendszer, és hogyan írjuk fel egyenletekkel',
         'Szakasz szimulálása: időlépések, integrálás, és miért számít a lépésköz',
         'Nyílt és zárt hurok, és hogy valójában mit ad a visszacsatolás',
+        'Pólusok, csillapítás és stabilitás — miért leng be egy rendszer, és mit változtat valójában a hangolás',
         'PID a nulláról: arányos, integráló és differenciáló tag — és az anti-windup',
         'Hangolás és az ugrásválasz olvasása: felfutási idő, túllövés és beállási idő',
         'A szimuláció őszintévé tétele: szenzorzaj, kvantálás és beavatkozói korlátok',
@@ -299,7 +301,7 @@ export const courses: Course[] = [
     topics: {
       en: [
         'State space: describing a system with matrices instead of one transfer function',
-        'Poles, stability and controllability — what the model tells you before you tune',
+        'Controllability and observability — what the state-space model tells you before you design',
         'State feedback and pole placement',
         'Observers: estimating the states you cannot measure',
         'LQR: letting a cost function do the tuning for you',
@@ -309,7 +311,7 @@ export const courses: Course[] = [
       ],
       hu: [
         'Állapottér: rendszer leírása mátrixokkal egyetlen átviteli függvény helyett',
-        'Pólusok, stabilitás és irányíthatóság — mit árul el a modell a hangolás előtt',
+        'Irányíthatóság és megfigyelhetőség — mit árul el az állapottér-modell a tervezés előtt',
         'Állapot-visszacsatolás és pólusáthelyezés',
         'Megfigyelők: a nem mérhető állapotok becslése',
         'LQR: bízzuk a hangolást egy költségfüggvényre',
