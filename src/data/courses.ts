@@ -268,7 +268,7 @@ export const courses: Course[] = [
         'Analog front-ends: op-amps, filters, and driving an ADC properly',
         'Noise, crosstalk and EMC — finding them before the lab does',
         'High-speed routing: impedance, length matching and differential pairs',
-        'Design for manufacture: HDI, fine pitch, and what your fab charges extra for',
+        'Design for manufacture: fine pitch, tolerances, and what your fab charges extra for',
         'Bring-up: testing a board you have never powered before',
       ],
       hu: [
@@ -278,7 +278,7 @@ export const courses: Course[] = [
         'Analóg bemeneti fokozatok: műveleti erősítők, szűrők, és az ADC helyes meghajtása',
         'Zaj, áthallás és EMC — megtalálni őket, mielőtt a labor teszi meg',
         'Nagy sebességű huzalozás: impedancia, hosszillesztés és differenciális párok',
-        'Gyárthatóságra tervezés: HDI, finom raszter, és amiért a gyártó felárat kér',
+        'Gyárthatóságra tervezés: finom raszter, tűrések, és amiért a gyártó felárat kér',
         'Beüzemelés: olyan panel tesztelése, amelyet még sosem kapcsoltál be',
       ],
     },
