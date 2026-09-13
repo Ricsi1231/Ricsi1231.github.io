@@ -163,8 +163,8 @@ export const courses: Course[] = [
       hu: 'Ipari robotika alapjai FANUC RoboGuide-ban',
     },
     summary: {
-      en: 'Programming six-axis industrial robots entirely in simulation — the teach pendant and TP programs, motion and frames, program logic, I/O handshakes, camera vision and safety zones, in a full workcell you build yourself.',
-      hu: 'Hattengelyes ipari robotok programozása teljesen szimulációban — a teach pendant és a TP-programok, mozgás és koordinátarendszerek, programlogika, I/O-kézfogások, gépi látás és biztonsági zónák, egy teljes gyártócellában, amelyet magad építesz fel.',
+      en: 'Programming six-axis industrial robots entirely in simulation — the teach pendant and TP programs, motion and frames, program logic, machine tending and I/O handshakes, camera vision and safety zones, in a full workcell you build yourself.',
+      hu: 'Hattengelyes ipari robotok programozása teljesen szimulációban — a teach pendant és a TP-programok, mozgás és koordinátarendszerek, programlogika, gépkiszolgálás és I/O-kézfogások, gépi látás és biztonsági zónák, egy teljes gyártócellában, amelyet magad építesz fel.',
     },
     topics: {
       en: [
@@ -176,7 +176,9 @@ export const courses: Course[] = [
         'Tool and user frames: setting a TCP with the six-point method, and why a wrong frame breaks everything downstream',
         'Registers, position registers, and program flow: IF, JMP/LBL, CALL and WAIT',
         'Digital I/O and handshaking between the robot and a machine',
+        'Machine tending: commanding a CNC — door, chuck, cycle start — and reading its status back',
         'Pick and place, and palletizing with position registers',
+        'Coordinating two robots in one cell: agreeing who moves next, and staying out of each other',
         'Camera basics: how machine vision works, and adding a simulated camera in RoboGuide',
         'Putting vision to work: obstacle detection, and counting what the camera finds',
         'Safety: interference zones, DCS, fences and E-stop — set up in simulation first',
@@ -191,7 +193,9 @@ export const courses: Course[] = [
         'Szerszám- és felhasználói koordinátarendszerek: TCP beállítása hatpontos módszerrel, és miért borul fel egy rossz frame-től minden',
         'Regiszterek, pozícióregiszterek és programvezérlés: IF, JMP/LBL, CALL és WAIT',
         'Digitális I/O és kézfogás a robot és a gép között',
+        'Gépkiszolgálás: CNC vezérlése — ajtó, befogó, ciklusindítás — és az állapotának visszaolvasása',
         'Felvétel-lerakás és palettázás pozícióregiszterekkel',
+        'Két robot összehangolása egy cellában: megegyezni, ki mozog, és kitérni egymás elől',
         'Kameraalapok: hogyan működik a gépi látás, és szimulált kamera beállítása RoboGuide-ban',
         'A látás gyakorlatban: akadályérzékelés és a kamera által észlelt akadályok számlálása',
         'Biztonság: ütközési zónák, DCS, kerítések és vészleállítás — előbb szimulációban beállítva',
